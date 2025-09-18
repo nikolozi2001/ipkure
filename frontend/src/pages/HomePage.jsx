@@ -7,16 +7,16 @@ import bottle from "../assets/images/bottle.png"; // round bottle image
 export default function HomePage() {
   return (
     <div
-      className="container-fluid mx-auto"
+      className="w-full"
       style={{ backgroundColor: "var(--background-light)" }}
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center min-h-[calc(100vh-120px)]">
         {/* LEFT SIDE IMAGE */}
-        <div className="relative">
+        <div className="relative h-full">
           <img
             src={perfume1}
             alt="Perfume Banner"
-            className="shadow-lg w-full h-full object-contain"
+            className="w-full h-full object-cover shadow-lg"
           />
           {/* Badge */}
           <div className="absolute bottom-6 left-6 bg-yellow-600 text-white px-4 py-2 rounded-md text-sm font-medium shadow-md">
@@ -29,7 +29,7 @@ export default function HomePage() {
         </div>
 
         {/* RIGHT SIDE CONTENT */}
-        <div>
+        <div className="flex flex-col justify-center h-full">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-5xl font-bold tracking-wide">
               FRAGRANCE
