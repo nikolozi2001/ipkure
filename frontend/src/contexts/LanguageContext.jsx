@@ -1,18 +1,9 @@
 // src/contexts/LanguageContext.jsx
-import { createContext, useContext, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { LanguageContext } from './LanguageContext';
 
-const LanguageContext = createContext();
-
-export const useLanguage = () => {
-  const context = useContext(LanguageContext);
-  if (!context) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
-  }
-  return context;
-};
-
-export const LanguageProvider = ({ children }) => {
+export default function LanguageProvider({ children }) {
   const [language, setLanguage] = useState('ge');
   const navigate = useNavigate();
   const location = useLocation();
@@ -50,4 +41,4 @@ export const LanguageProvider = ({ children }) => {
       {children}
     </LanguageContext.Provider>
   );
-};
+}

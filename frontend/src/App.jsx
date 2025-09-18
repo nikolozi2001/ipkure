@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { LanguageProvider } from './contexts/LanguageContext';
+import LanguageProvider from './contexts/LanguageContext.jsx';
 import Layout from './components/Layout';
 import HomePage from './pages/HomePage';
 import ShopPage from './pages/ShopPage';

@@ -1,7 +1,7 @@
 // src/components/Header.jsx
 import { FaSearch, FaHeart, FaUser, FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useLanguage } from "../contexts/LanguageContext";
+import { useLanguage } from "../hooks/useLanguage";
 import Logo from "../assets/images/svg/Ipkure";
 
 export default function Header() {
