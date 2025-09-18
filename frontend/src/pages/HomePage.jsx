@@ -139,9 +139,9 @@ export default function HomePage() {
           <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
             {/* Product 1 */}
             <div
-              className="rounded-lg p-4 text-center hover:shadow-lg transition aspect-square flex flex-col relative"
+              className="p-4 text-center hover:shadow-lg transition aspect-square flex flex-col relative"
               style={{
-                borderColor: "var(--accent-color)",
+                borderColor: "var(--golden-brown)",
                 borderWidth: "1px",
                 borderStyle: "solid",
               }}
@@ -162,7 +162,7 @@ export default function HomePage() {
                       : "var(--font-primary-en)",
                   backgroundColor: "var(--accent-color)",
                   color: "white",
-                  textDecoration: "none"
+                  textDecoration: "none",
                 }}
                 onMouseEnter={(e) => {
                   e.target.style.backgroundColor = "var(--golden-brown)";
@@ -177,9 +177,9 @@ export default function HomePage() {
 
             {/* Product 2 */}
             <div
-              className="rounded-lg p-4 text-center hover:shadow-lg transition aspect-square flex flex-col relative"
+              className="p-4 text-center hover:shadow-lg transition aspect-square flex flex-col relative"
               style={{
-                borderColor: "var(--accent-color)",
+                borderColor: "var(--golden-brown)",
                 borderWidth: "1px",
                 borderStyle: "solid",
               }}
@@ -200,7 +200,7 @@ export default function HomePage() {
                       : "var(--font-primary-en)",
                   backgroundColor: "var(--accent-color)",
                   color: "white",
-                  textDecoration: "none"
+                  textDecoration: "none",
                 }}
                 onMouseEnter={(e) => {
                   e.target.style.backgroundColor = "var(--golden-brown)";
