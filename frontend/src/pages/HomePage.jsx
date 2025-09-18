@@ -105,7 +105,7 @@ export default function HomePage() {
                 {/* Second line - Subtitle 30% right */}
                 <div className="w-full flex justify-end">
                   <span
-                    className="text-3xl font-light inline-block"
+                    className="text-3xl font-light inline-block z-0"
                     style={{ width: "30%" }}
                   >
                     {t.hero.subtitle}
@@ -115,7 +115,10 @@ export default function HomePage() {
               <img
                 src={bottle}
                 alt={t.altTexts.cocoBottle}
-                className="w-40 h-40 rounded-full object-cover shadow-md"
+                className="w-50 h-50 rounded-full object-contain shadow-md"
+                style={{
+                  backgroundColor: "var(--secondary-color)",
+                }}
               />
             </div>
           </div>
