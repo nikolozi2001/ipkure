@@ -16,7 +16,8 @@
   --text-dark: var(--deep-coffee);
   
   /* Typography */
-  --font-primary: 'Poppins', sans-serif;
+  --font-primary-en: 'Poppins', sans-serif;
+  --font-primary-ge: 'Noto Sans Georgian', sans-serif;
   --font-mono: 'Space Mono', 'Courier New', monospace;
   --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
@@ -44,10 +45,40 @@ body {
 
 /* Header specific styles */
 header {
-  font-family: var(--font-primary);
+  // Default to English font
+  font-family: var(--font-primary-en);
+
+  nav a {
+    font-family: inherit;
+    font-weight: 500;
+  }
 }
 
-header nav a {
-  font-family: var(--font-primary);
-  font-weight: 500;
+/* Language-specific font styles */
+[data-lang="ge"] {
+  header {
+    font-family: var(--font-primary-ge);
+  }
+  
+  // Apply Georgian font to all text elements when in Georgian mode
+  h1, h2, h3, h4, h5, h6,
+  .page-title,
+  .nav-item,
+  button {
+    font-family: var(--font-primary-ge);
+  }
+}
+
+[data-lang="en"] {
+  header {
+    font-family: var(--font-primary-en);
+  }
+  
+  // Apply English font to all text elements when in English mode
+  h1, h2, h3, h4, h5, h6,
+  .page-title,
+  .nav-item,
+  button {
+    font-family: var(--font-primary-en);
+  }
 }

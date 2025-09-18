@@ -1,4 +1,4 @@
-// Poppins Font Family - Local Files
+// Poppins Font Family - Local Files (for English)
 @font-face {
   font-family: "Poppins";
   src: url("/src/assets/fonts/Poppins/Poppins-Light.ttf") format("truetype");
@@ -34,6 +34,47 @@
 @font-face {
   font-family: "Poppins";
   src: url("/src/assets/fonts/Poppins/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Noto Sans Georgian Font Family - Local Files (for Georgian)
+@font-face {
+  font-family: "Noto Sans Georgian";
+  src: url("/src/assets/fonts/Noto_Sans_Georgian/static/NotoSansGeorgian-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto Sans Georgian";
+  src: url("/src/assets/fonts/Noto_Sans_Georgian/static/NotoSansGeorgian-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto Sans Georgian";
+  src: url("/src/assets/fonts/Noto_Sans_Georgian/static/NotoSansGeorgian-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto Sans Georgian";
+  src: url("/src/assets/fonts/Noto_Sans_Georgian/static/NotoSansGeorgian-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto Sans Georgian";
+  src: url("/src/assets/fonts/Noto_Sans_Georgian/static/NotoSansGeorgian-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
