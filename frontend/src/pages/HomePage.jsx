@@ -60,17 +60,17 @@ export default function HomePage() {
       className="w-full"
       style={{ backgroundColor: "var(--background-light)" }}
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center min-h-[calc(100vh-120px)]">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 items-center min-h-[calc(100vh-120px)]">
         {/* LEFT SIDE IMAGE */}
-        <div className="relative h-full">
+        <div className="relative h-64 sm:h-80 lg:h-full order-1 lg:order-none">
           <img
             src={perfume1}
             alt={t.altTexts.perfumeBanner}
-            className="w-full h-full object-cover shadow-lg"
+            className="w-full h-full object-cover shadow-lg rounded-lg lg:rounded-none"
           />
           {/* Badge */}
           <div
-            className="absolute bottom-0 right-0 text-white font-medium shadow-md px-6 py-3"
+            className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 text-white font-medium shadow-md px-3 py-2 sm:px-6 sm:py-3 rounded-md"
             style={{
               backgroundColor: "var(--golden-brown)",
               fontFamily:
@@ -79,20 +79,20 @@ export default function HomePage() {
                   : "var(--font-primary-en)",
             }}
           >
-            <span className="font-bold text-xl">{t.badge.discount}</span>
+            <span className="font-bold text-base sm:text-xl">{t.badge.discount}</span>
             <br />
-            <span className="uppercase text-lg tracking-wide">
+            <span className="uppercase text-xs sm:text-lg tracking-wide">
               {t.badge.text}
             </span>
           </div>
         </div>
 
         {/* RIGHT SIDE CONTENT */}
-        <div className="flex flex-col justify-center h-full">
-          <div className="flex items-center justify-center mb-6">
-            <div className="flex items-center gap-8">
+        <div className="flex flex-col justify-center h-full px-4 sm:px-6 lg:px-0 order-2 lg:order-none">
+          <div className="flex flex-col sm:flex-row items-center justify-center mb-4 sm:mb-6">
+            <div className="text-center sm:text-left mb-4 sm:mb-0 sm:mr-4 lg:mr-8">
               <div
-                className="text-5xl font-bold tracking-wide"
+                className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-wide"
                 style={{
                   fontFamily:
                     language === "ge"
@@ -100,35 +100,31 @@ export default function HomePage() {
                       : "var(--font-primary-en)",
                 }}
               >
-                {/* First line - Title 70% left */}
-                <div className="w-full text-left">
-                  <span className="inline-block" style={{ width: "70%" }}>
-                    {t.hero.title}
-                  </span>
+                {/* First line - Title */}
+                <div className="w-full">
+                  <span className="block sm:inline-block">{t.hero.title}</span>
                 </div>
-                {/* Second line - Subtitle 30% right */}
-                <div className="w-full flex justify-end">
-                  <span
-                    className="text-3xl font-light inline-block z-0"
-                    style={{ width: "30%" }}
-                  >
+                {/* Second line - Subtitle */}
+                <div className="w-full text-center sm:text-right">
+                  <span className="text-xl sm:text-2xl lg:text-3xl font-light block sm:inline-block">
                     {t.hero.subtitle}
                   </span>
                 </div>
               </div>
-              <img
-                src={bottle}
-                alt={t.altTexts.cocoBottle}
-                className="w-50 h-50 rounded-full object-contain shadow-md"
-                style={{
-                  backgroundColor: "var(--secondary-color)",
-                }}
-              />
             </div>
+            <img
+              src={bottle}
+              alt={t.altTexts.cocoBottle}
+              className="w-20 h-20 sm:w-32 sm:h-32 lg:w-40 lg:h-40 rounded-full object-contain shadow-md flex-shrink-0"
+              style={{
+                backgroundColor: "var(--secondary-color)",
+                padding: "8px sm:10px"
+              }}
+            />
           </div>
 
           <p
-            className="text-gray-600 leading-relaxed mb-8 max-w-lg text-center mx-auto"
+            className="text-gray-600 leading-relaxed mb-6 sm:mb-8 max-w-full sm:max-w-lg text-center mx-auto text-sm sm:text-base"
             style={{
               fontFamily:
                 language === "ge"
@@ -140,10 +136,10 @@ export default function HomePage() {
           </p>
 
           {/* Product Cards */}
-          <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 max-w-xs sm:max-w-md mx-auto">
             {/* Product 1 */}
             <div
-              className="p-4 text-center hover:shadow-lg transition aspect-square flex flex-col relative"
+              className="p-3 sm:p-4 text-center hover:shadow-lg transition aspect-square flex flex-col relative rounded-lg"
               style={{
                 borderColor: "var(--golden-brown)",
                 borderWidth: "1px",
@@ -154,11 +150,11 @@ export default function HomePage() {
                 <img
                   src={perfume2}
                   alt={t.altTexts.tomFord}
-                  className="w-42 h-42 object-contain"
+                  className="w-12 h-16 sm:w-16 sm:h-20 lg:w-20 lg:h-24 object-contain"
                 />
               </div>
               <button
-                className="absolute bottom-0 left-0 right-0 text-xs font-medium uppercase tracking-wide flex items-center justify-center gap-1 py-2 cursor-pointer transition-all duration-200 hover:scale-105"
+                className="absolute bottom-0 left-0 right-0 text-xs font-medium uppercase tracking-wide flex items-center justify-center gap-1 py-2 cursor-pointer transition-all duration-200 hover:scale-105 rounded-b-lg"
                 style={{
                   fontFamily:
                     language === "ge"
@@ -181,7 +177,7 @@ export default function HomePage() {
 
             {/* Product 2 */}
             <div
-              className="p-4 text-center hover:shadow-lg transition aspect-square flex flex-col relative"
+              className="p-3 sm:p-4 text-center hover:shadow-lg transition aspect-square flex flex-col relative rounded-lg"
               style={{
                 borderColor: "var(--golden-brown)",
                 borderWidth: "1px",
@@ -192,11 +188,11 @@ export default function HomePage() {
                 <img
                   src={perfume3}
                   alt={t.altTexts.cocoChanel}
-                  className="w-42 h-42 object-contain"
+                  className="w-12 h-16 sm:w-16 sm:h-20 lg:w-20 lg:h-24 object-contain"
                 />
               </div>
               <button
-                className="absolute bottom-0 left-0 right-0 text-xs font-medium uppercase tracking-wide flex items-center justify-center gap-1 py-2 cursor-pointer transition-all duration-200 hover:scale-105"
+                className="absolute bottom-0 left-0 right-0 text-xs font-medium uppercase tracking-wide flex items-center justify-center gap-1 py-2 cursor-pointer transition-all duration-200 hover:scale-105 rounded-b-lg"
                 style={{
                   fontFamily:
                     language === "ge"
