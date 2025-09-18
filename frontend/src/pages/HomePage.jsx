@@ -136,21 +136,32 @@ export default function HomePage() {
           </p>
 
           {/* Product Cards */}
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
             {/* Product 1 */}
-            <div className="border border-gray-200 rounded-lg p-6 text-center hover:shadow-lg transition">
-              <img
-                src={perfume2}
-                alt={t.altTexts.tomFord}
-                className="w-24 h-36 object-contain mx-auto mb-4"
-              />
+            <div
+              className="rounded-lg p-4 text-center hover:shadow-lg transition aspect-square flex flex-col relative"
+              style={{
+                borderColor: "var(--accent-color)",
+                borderWidth: "1px",
+                borderStyle: "solid",
+              }}
+            >
+              <div className="flex-1 flex items-center justify-center">
+                <img
+                  src={perfume2}
+                  alt={t.altTexts.tomFord}
+                  className="w-42 h-42 object-contain"
+                />
+              </div>
               <button
-                className="text-sm font-medium uppercase tracking-wide text-gray-800 hover:underline flex items-center justify-center gap-1"
+                className="absolute bottom-0 left-0 right-0 text-xs font-medium uppercase tracking-wide text-gray-800 hover:underline flex items-center justify-center gap-1 py-2"
                 style={{
                   fontFamily:
                     language === "ge"
                       ? "var(--font-primary-ge)"
                       : "var(--font-primary-en)",
+                  backgroundColor: "var(--accent-color)",
+                  color: "var(--font-light)",
                 }}
               >
                 {t.shopNow} <span>↗</span>
@@ -158,19 +169,30 @@ export default function HomePage() {
             </div>
 
             {/* Product 2 */}
-            <div className="border border-gray-200 rounded-lg p-6 text-center hover:shadow-lg transition">
-              <img
-                src={perfume3}
-                alt={t.altTexts.cocoChanel}
-                className="w-24 h-36 object-contain mx-auto mb-4"
-              />
+            <div
+              className="rounded-lg p-4 text-center hover:shadow-lg transition aspect-square flex flex-col relative"
+              style={{
+                borderColor: "var(--accent-color)",
+                borderWidth: "1px",
+                borderStyle: "solid",
+              }}
+            >
+              <div className="flex-1 flex items-center justify-center">
+                <img
+                  src={perfume3}
+                  alt={t.altTexts.cocoChanel}
+                  className="w-42 h-42 object-contain"
+                />
+              </div>
               <button
-                className="text-sm font-medium uppercase tracking-wide text-gray-800 hover:underline flex items-center justify-center gap-1"
+                className="absolute bottom-0 left-0 right-0 text-xs font-medium uppercase tracking-wide text-gray-800 hover:underline flex items-center justify-center gap-1 py-2"
                 style={{
                   fontFamily:
                     language === "ge"
                       ? "var(--font-primary-ge)"
                       : "var(--font-primary-en)",
+                  backgroundColor: "var(--accent-color)",
+                  color: "var(--font-light)",
                 }}
               >
                 {t.shopNow} <span>↗</span>

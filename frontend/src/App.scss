@@ -1,28 +1,31 @@
 /* Import Local Fonts */
-@import './assets/styles/fonts.scss';
+@import "./assets/styles/fonts.scss";
 
 /* Root CSS Variables - Main Brand Colors */
 :root {
   /* Primary Brand Colors */
-  --golden-brown: #c99c50;       /* Golden Brown / Caramel */
-  --warm-beige: #ccb195;         /* Taupe / Warm Beige */
-  --dark-brown: #582d0e;         /* Dark Brown / Espresso */
-  --deep-coffee: #391800;        /* Deep Coffee / Almost Black Brown */
-  
+  --golden-brown: #c99c50; /* Golden Brown / Caramel */
+  --warm-beige: #ccb195; /* Taupe / Warm Beige */
+  --dark-brown: #582d0e; /* Dark Brown / Espresso */
+  --deep-coffee: #391800; /* Deep Coffee / Almost Black Brown */
+  --font-light: #f5f5f5; /* Light Font Color */
+
   /* Color Aliases for easier usage */
   --primary-color: var(--golden-brown);
   --secondary-color: var(--warm-beige);
   --accent-color: var(--dark-brown);
   --text-dark: var(--deep-coffee);
-  
+
   /* Typography */
-  --font-primary-en: 'Poppins', sans-serif;
-  --font-primary-ge: 'Noto Sans Georgian', sans-serif;
-  --font-header-ge: 'BPG Nino Mtavruli', 'bpg_nino_mtavruliregular', 'Noto Sans Georgian', sans-serif;
-  --font-mono: 'Space Mono', 'Courier New', monospace;
-  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  
+  --font-primary-en: "Poppins", sans-serif;
+  --font-primary-ge: "Noto Sans Georgian", sans-serif;
+  --font-header-ge: "BPG Nino Mtavruli", "bpg_nino_mtavruliregular",
+    "Noto Sans Georgian", sans-serif;
+  --font-mono: "Space Mono", "Courier New", monospace;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+
   /* Additional utility colors */
   --background-light: #faf9f7;
   --background-white: #ffffff;
@@ -60,7 +63,7 @@ header {
   header {
     font-family: var(--font-header-ge);
     font-weight: normal;
-    
+
     nav a {
       font-family: var(--font-header-ge);
       font-weight: normal;
@@ -68,17 +71,24 @@ header {
       letter-spacing: 0.5px;
     }
   }
-  
+
   // Apply Georgian fonts - BPG Nino Mtavruli for headers, Noto Sans Georgian for body text
-  h1, h2, h3, h4, h5, h6,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
   .page-title {
     font-family: var(--font-header-ge);
     font-weight: normal;
   }
-  
+
   .nav-item,
   button,
-  p, span, div {
+  p,
+  span,
+  div {
     font-family: var(--font-primary-ge);
   }
 }
@@ -87,9 +97,14 @@ header {
   header {
     font-family: var(--font-primary-en);
   }
-  
+
   // Apply English font to all text elements when in English mode
-  h1, h2, h3, h4, h5, h6,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
   .page-title,
   .nav-item,
   button {
