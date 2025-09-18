@@ -6,14 +6,17 @@ import bottle from "../assets/images/bottle.png"; // round bottle image
 
 export default function HomePage() {
   return (
-    <div className="container mx-auto px-6 py-12">
+    <div
+      className="container-fluid mx-auto"
+      style={{ backgroundColor: "var(--background-light)" }}
+    >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         {/* LEFT SIDE IMAGE */}
         <div className="relative">
           <img
             src={perfume1}
             alt="Perfume Banner"
-            className="rounded-lg shadow-lg w-full h-full object-cover"
+            className="shadow-lg w-full h-full object-contain"
           />
           {/* Badge */}
           <div className="absolute bottom-6 left-6 bg-yellow-600 text-white px-4 py-2 rounded-md text-sm font-medium shadow-md">
