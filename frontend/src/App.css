@@ -1,0 +1,36 @@
+/* Root CSS Variables - Main Brand Colors */
+:root {
+  /* Primary Brand Colors */
+  --golden-brown: #c99c50;       /* Golden Brown / Caramel */
+  --warm-beige: #ccb195;         /* Taupe / Warm Beige */
+  --dark-brown: #582d0e;         /* Dark Brown / Espresso */
+  --deep-coffee: #391800;        /* Deep Coffee / Almost Black Brown */
+  
+  /* Color Aliases for easier usage */
+  --primary-color: var(--golden-brown);
+  --secondary-color: var(--warm-beige);
+  --accent-color: var(--dark-brown);
+  --text-dark: var(--deep-coffee);
+  
+  /* Additional utility colors */
+  --background-light: #faf9f7;
+  --background-white: #ffffff;
+  --text-light: #666666;
+  --border-light: #e5e5e5;
+}
+
+/* Global styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-white);
+  color: var(--text-dark);
+}
