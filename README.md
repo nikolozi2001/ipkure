@@ -1,6 +1,6 @@
 # Ipkure - Multilingual Perfume E-commerce Website
 
-A modern, responsive perfume e-commerce website built with React and Vite, featuring bilingual support (English/Georgian) and elegant design.
+A modern, responsive perfume e-commerce website built with React and Vite, featuring bilingual support (English/Georgian), dynamic title system, and elegant design.
 
 ## 🌟 Features
 
@@ -10,18 +10,22 @@ A modern, responsive perfume e-commerce website built with React and Vite, featu
 - Default language: Georgian
 - Automatic font switching based on language
 - Complete translation system for all content
+- **Dynamic document titles** that change based on language and page
 
 ### 🎨 Design & Styling
 - **Custom Color Palette**: Golden brown, warm beige, dark brown theme
 - **Typography**: 
   - English: Poppins font family
   - Georgian: BPG Nino Mtavruli for headers, Noto Sans Georgian for body text
+- **Modern Sass** with `@use` syntax (no deprecation warnings)
 - **SCSS/Sass** support for advanced styling
 - **Tailwind CSS** for utility-first styling
 - **Responsive Design** for all screen sizes
+- **Interactive elements** with smooth hover effects
 
 ### 🏪 E-commerce Features
-- Product showcase cards with hover effects
+- **Product showcase cards** with hover effects and animations
+- **Dynamic product buttons** with golden-brown hover states
 - Shopping cart integration ready
 - Search functionality (UI ready)
 - User account system (UI ready)
@@ -32,8 +36,31 @@ A modern, responsive perfume e-commerce website built with React and Vite, featu
 - **Vite 7.1.6** for fast development and building
 - **React Router DOM** for navigation
 - **Custom Language Context** for state management
+- **Dynamic Document Title System** for SEO and UX
 - **CSS Variables** for consistent theming
 - **Local Font Loading** for better performance
+- **Network accessibility** configuration for team development
+
+## 📋 Dynamic Title System
+
+### 🏷️ Language-Aware Titles
+- **Georgian**: `იპკურე` (base) / `მთავარი - იპკურე` (with page)
+- **English**: `IPKURE` (base) / `Home - IPKURE` (with page)
+
+### 📄 Page-Specific Titles
+| Page | Georgian Title | English Title |
+|------|---------------|---------------|
+| Home | `მთავარი - იპკურე` | `Home - IPKURE` |
+| Brand | `ბრენდი - იპკურე` | `Brand - IPKURE` |
+| Men | `მამაკაცი - იპკურე` | `Men - IPKURE` |
+| Women | `ქალი - იპკურე` | `Women - IPKURE` |
+| Gift Sets | `სასაჩუქრე ნაკრები - იპკურე` | `Gift Sets - IPKURE` |
+| Contact | `კონტაქტი - იპკურე` | `Contact Us - IPKURE` |
+
+### 🔄 Auto-Detection
+- **URL-based**: Automatically detects page from route
+- **Language switching**: Maintains page context when changing languages
+- **Fallback system**: Graceful handling of unknown pages
 
 ## 🛠️ Installation
 
@@ -65,7 +92,8 @@ A modern, responsive perfume e-commerce website built with React and Vite, featu
    ```
 
 5. **Open in browser**
-   - Navigate to `http://localhost:5173`
+   - **Local**: `http://localhost:5000`
+   - **Network**: `http://[YOUR_IP]:5000` (accessible from other devices)
    - Default route redirects to `/ge` (Georgian)
 
 ## 📁 Project Structure
@@ -86,7 +114,8 @@ frontend/
 │   ├── contexts/
 │   │   └── LanguageContext.jsx  # Language context
 │   ├── hooks/
-│   │   └── useLanguage.js   # Language hook
+│   │   ├── useLanguage.js   # Language hook
+│   │   └── useDocumentTitle.js  # Dynamic title hook
 │   ├── pages/
 │   │   └── HomePage.jsx     # Main homepage
 │   ├── App.jsx             # Main app component
@@ -151,11 +180,33 @@ frontend/
 --font-header-ge: 'BPG Nino Mtavruli', 'Noto Sans Georgian', sans-serif;
 ```
 
-## 🛒 Available Scripts
+## � Development Configuration
+
+### 🌐 Network Accessibility
+- **Host**: `0.0.0.0` (accessible from all network interfaces)
+- **Port**: `5000` (custom port configuration)
+- **Cross-device testing**: Access from mobile devices on same network
+- **Team collaboration**: Share development server with colleagues
+
+### 📱 Dynamic Title Management
+```javascript
+// Usage in any page component
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
+
+export default function MyPage() {
+  useDocumentTitle('brand'); // For predefined pages
+  // or
+  useDocumentTitle(); // Auto-detects from URL
+  
+  return <div>Page content</div>;
+}
+```
+
+## �🛒 Available Scripts
 
 ```bash
 # Development
-npm run dev          # Start development server
+npm run dev          # Start development server on port 5000
 
 # Building
 npm run build        # Build for production
@@ -198,22 +249,58 @@ npm run build
 
 ## 📋 Todo / Roadmap
 
-- [ ] Add shopping cart functionality
-- [ ] Implement user authentication
-- [ ] Add product detail pages
-- [ ] Integrate payment gateway
-- [ ] Add product search and filtering
-- [ ] Implement wishlist functionality
-- [ ] Add product reviews system
-- [ ] SEO optimization
+### ✅ Completed Features
+- [x] Dynamic document title system with language support
+- [x] Multilingual content translation system
+- [x] Modern Sass configuration with `@use` syntax
+- [x] Interactive product cards with hover animations
+- [x] Network-accessible development server
+- [x] Responsive design implementation
+- [x] Custom font loading system
+- [x] Color palette and theming system
+
+### 🔄 In Progress
+- [ ] Additional page components (Brand, Men, Women, etc.)
+- [ ] Enhanced product showcase functionality
+
+### 📅 Planned Features
+- [ ] Shopping cart functionality
+- [ ] User authentication system
+- [ ] Product detail pages
+- [ ] Payment gateway integration
+- [ ] Advanced product search and filtering
+- [ ] Wishlist functionality
+- [ ] Product reviews system
+- [ ] SEO optimization and meta tags
 - [ ] Performance optimization
-- [ ] Add more language support
+- [ ] Additional language support (Russian, Turkish)
+- [ ] Admin dashboard for content management
+
+### 🔧 Technical Improvements
+- [ ] Unit testing implementation
+- [ ] E2E testing with Cypress/Playwright
+- [ ] PWA features (offline support, push notifications)
+- [ ] Image optimization and lazy loading
+- [ ] Bundle size optimization
 
 ## 🐛 Known Issues
 
 - None at the moment
 
-## 📄 License
+## 🆕 Recent Updates
+
+### Version 2.0 (Latest)
+- ✨ **Dynamic Document Titles**: Language-aware page titles that change automatically
+- 🔧 **Modern Sass**: Updated to use `@use` syntax, eliminating deprecation warnings
+- 🎨 **Enhanced UI**: Improved product card animations and hover effects
+- 🌐 **Network Access**: Development server accessible from all network interfaces
+- � **Better UX**: Smoother language switching with maintained page context
+- 🚀 **Performance**: Optimized font loading and reduced bundle warnings
+
+### Previous Versions
+- v1.0: Initial release with basic multilingual support and responsive design
+
+## �📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
@@ -225,16 +312,17 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Poppins** font by Google Fonts
 - **BPG Nino Mtavruli** Georgian font
+- **Noto Sans Georgian** for Georgian text support
 - **Tailwind CSS** for utility classes
 - **React** team for the amazing framework
-- **Vite** for the fast build tool
+- **Vite** for the fast build tool and hot module replacement
 
 ---
 
 ## 📞 Support
 
-For support, email mr.qachibaia44@gmail.com or create an issue in the GitHub repository.
+For support, create an issue in the GitHub repository or contact the development team.
 
 ---
 
-**Made with ❤️ for perfume lovers**
+**Made with ❤️ for perfume lovers in Georgia and beyond** 🇬🇪
