@@ -154,14 +154,21 @@ export default function HomePage() {
                 />
               </div>
               <button
-                className="absolute bottom-0 left-0 right-0 text-xs font-medium uppercase tracking-wide text-gray-800 hover:underline flex items-center justify-center gap-1 py-2"
+                className="absolute bottom-0 left-0 right-0 text-xs font-medium uppercase tracking-wide flex items-center justify-center gap-1 py-2 cursor-pointer transition-all duration-200 hover:scale-105"
                 style={{
                   fontFamily:
                     language === "ge"
                       ? "var(--font-primary-ge)"
                       : "var(--font-primary-en)",
                   backgroundColor: "var(--accent-color)",
-                  color: "var(--font-light)",
+                  color: "white",
+                  textDecoration: "none"
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.backgroundColor = "var(--golden-brown)";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.backgroundColor = "var(--accent-color)";
                 }}
               >
                 {t.shopNow} <span>↗</span>
@@ -185,14 +192,21 @@ export default function HomePage() {
                 />
               </div>
               <button
-                className="absolute bottom-0 left-0 right-0 text-xs font-medium uppercase tracking-wide text-gray-800 hover:underline flex items-center justify-center gap-1 py-2"
+                className="absolute bottom-0 left-0 right-0 text-xs font-medium uppercase tracking-wide flex items-center justify-center gap-1 py-2 cursor-pointer transition-all duration-200 hover:scale-105"
                 style={{
                   fontFamily:
                     language === "ge"
                       ? "var(--font-primary-ge)"
                       : "var(--font-primary-en)",
                   backgroundColor: "var(--accent-color)",
-                  color: "var(--font-light)",
+                  color: "white",
+                  textDecoration: "none"
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.backgroundColor = "var(--golden-brown)";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.backgroundColor = "var(--accent-color)";
                 }}
               >
                 {t.shopNow} <span>↗</span>
