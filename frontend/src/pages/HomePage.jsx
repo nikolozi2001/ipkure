@@ -160,15 +160,15 @@ export default function HomePage() {
                     language === "ge"
                       ? "var(--font-primary-ge)"
                       : "var(--font-primary-en)",
-                  backgroundColor: "var(--accent-color)",
+                  backgroundColor: "var(--golden-brown)",
                   color: "white",
                   textDecoration: "none",
                 }}
                 onMouseEnter={(e) => {
-                  e.target.style.backgroundColor = "var(--golden-brown)";
+                  e.target.style.backgroundColor = "var(--accent-color)";
                 }}
                 onMouseLeave={(e) => {
-                  e.target.style.backgroundColor = "var(--accent-color)";
+                  e.target.style.backgroundColor = "var(--golden-brown)";
                 }}
               >
                 {t.shopNow} <span>↗</span>
@@ -198,15 +198,15 @@ export default function HomePage() {
                     language === "ge"
                       ? "var(--font-primary-ge)"
                       : "var(--font-primary-en)",
-                  backgroundColor: "var(--accent-color)",
+                  backgroundColor: "var(--golden-brown)",
                   color: "white",
                   textDecoration: "none",
                 }}
                 onMouseEnter={(e) => {
-                  e.target.style.backgroundColor = "var(--golden-brown)";
+                  e.target.style.backgroundColor = "var(--accent-color)";
                 }}
                 onMouseLeave={(e) => {
-                  e.target.style.backgroundColor = "var(--accent-color)";
+                  e.target.style.backgroundColor = "var(--golden-brown)";
                 }}
               >
                 {t.shopNow} <span>↗</span>
