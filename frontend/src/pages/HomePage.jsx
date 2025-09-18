@@ -124,7 +124,7 @@ export default function HomePage() {
           </div>
 
           <p
-            className="text-gray-600 leading-relaxed mb-8 max-w-lg"
+            className="text-gray-600 leading-relaxed mb-8 max-w-lg text-center mx-auto"
             style={{
               fontFamily:
                 language === "ge"
