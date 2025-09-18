@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import LanguageProvider from './contexts/LanguageContext.jsx';
 import Layout from './components/Layout';
 import HomePage from './pages/HomePage';
-import ShopPage from './pages/ShopPage';
+import GiftSets from './pages/GiftSets.jsx';
 import BrandPage from './pages/BrandPage';
 import MenPage from './pages/MenPage';
 import WomenPage from './pages/WomenPage';
-import AboutPage from './pages/AboutPage';
+import Contacts from './pages/Contacts.jsx';
 
 function App() {
   return (
@@ -23,11 +23,11 @@ function App() {
               <Layout>
                 <Routes>
                   <Route path="/" element={<HomePage />} />
-                  <Route path="/shop" element={<ShopPage />} />
                   <Route path="/brand" element={<BrandPage />} />
                   <Route path="/men" element={<MenPage />} />
                   <Route path="/women" element={<WomenPage />} />
-                  <Route path="/about" element={<AboutPage />} />
+                  <Route path="/gift_sets" element={<GiftSets />} />
+                  <Route path="/contacts" element={<Contacts />} />
                 </Routes>
               </Layout>
             </LanguageProvider>

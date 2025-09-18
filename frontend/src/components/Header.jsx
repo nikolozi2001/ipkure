@@ -14,25 +14,28 @@ export default function Header() {
     <header className="w-full bg-white shadow-sm">
       <div className="container mx-auto flex items-center justify-between py-4 px-6">
         {/* Logo */}
-        <Link to={createLink('/')} className="text-2xl font-bold flex items-center space-x-1">
+        <Link
+          to={createLink("/")}
+          className="text-2xl font-bold flex items-center space-x-1"
+        >
           <Logo />
         </Link>
 
         {/* Navigation */}
         <nav className="hidden md:flex items-center space-x-6 text-sm font-medium text-gray-700">
-          <Link to={createLink('/')} className="text-black font-semibold">
+          <Link to={createLink("/")} className="text-black font-semibold">
             HOME
           </Link>
           <span className="h-4 border-r border-gray-300"></span>
-          <Link to={createLink('/shop')}>SHOP</Link>
+          <Link to={createLink("/brand")}>BRAND</Link>
           <span className="h-4 border-r border-gray-300"></span>
-          <Link to={createLink('/brand')}>BRAND</Link>
+          <Link to={createLink("/men")}>MEN</Link>
           <span className="h-4 border-r border-gray-300"></span>
-          <Link to={createLink('/men')}>MEN</Link>
+          <Link to={createLink("/women")}>WOMEN</Link>
           <span className="h-4 border-r border-gray-300"></span>
-          <Link to={createLink('/women')}>WOMEN</Link>
+          <Link to={createLink("/gift_sets")}>GIFT SETS</Link>
           <span className="h-4 border-r border-gray-300"></span>
-          <Link to={createLink('/about')}>ABOUT US</Link>
+          <Link to={createLink("/contacts")}>CONTACT US</Link>
         </nav>
 
         {/* Right side: Language switcher and Icons */}
@@ -40,18 +43,18 @@ export default function Header() {
           {/* Language switcher */}
           <div className="flex items-center space-x-2">
             <button
-              onClick={() => switchLanguage('en')}
-              className={`px-2 py-1 text-sm font-medium ${
-                language === 'en' ? 'text-black font-semibold' : 'text-gray-500'
+              onClick={() => switchLanguage("en")}
+              className={`px-2 py-1 text-sm font-medium cursor-pointer ${
+                language === "en" ? "text-black font-semibold" : "text-gray-500"
               }`}
             >
               EN
             </button>
             <span className="text-gray-300">|</span>
             <button
-              onClick={() => switchLanguage('ge')}
-              className={`px-2 py-1 text-sm font-medium ${
-                language === 'ge' ? 'text-black font-semibold' : 'text-gray-500'
+              onClick={() => switchLanguage("ge")}
+              className={`px-2 py-1 text-sm font-medium cursor-pointer ${
+                language === "ge" ? "text-black font-semibold" : "text-gray-500"
               }`}
             >
               GE
