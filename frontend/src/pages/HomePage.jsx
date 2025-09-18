@@ -13,39 +13,41 @@ export default function HomePage() {
     en: {
       badge: {
         discount: "25% Off",
-        text: "On New Arrivals"
+        text: "On New Arrivals",
       },
       hero: {
         title: "FRAGRANCE",
-        subtitle: "EXCLUSIVES"
+        subtitle: "EXCLUSIVES",
       },
-      description: "The most popular perfumes are a blend of timeless scents and those that have recently won our hearts, ranging from summer in a bottle to intensely sensual notes of love.",
+      description:
+        "The most popular perfumes are a blend of timeless scents and those that have recently won our hearts, ranging from summer in a bottle to intensely sensual notes of love.",
       shopNow: "Shop Now",
       altTexts: {
         perfumeBanner: "Perfume Banner",
         cocoBottle: "Coco Bottle",
         tomFord: "Tom Ford",
-        cocoChanel: "Coco Chanel"
-      }
+        cocoChanel: "Coco Chanel",
+      },
     },
     ge: {
       badge: {
         discount: "25% ფასდაკლება",
-        text: "ახალ კოლექციაზე"
+        text: "ახალ კოლექციაზე",
       },
       hero: {
         title: "სუნამოების",
-        subtitle: "ექსკლუზივები"
+        subtitle: "ექსკლუზივები",
       },
-      description: "ყველაზე პოპულარული პარფიუმები არის უდროო სუნებისა და მათთვის, ვინც ახლახან მოიპოვა ჩვენი გულები, ზაფხულიდან ბოთლში ინტენსიური სენსუალურ სიყვარულის ნოტებამდე.",
+      description:
+        "ყველაზე პოპულარული პარფიუმები არის უდროო სუნებისა და მათთვის, ვინც ახლახან მოიპოვა ჩვენი გულები, ზაფხულიდან ბოთლში ინტენსიური სენსუალურ სიყვარულის ნოტებამდე.",
       shopNow: "ყიდვა",
       altTexts: {
         perfumeBanner: "პარფიუმის ბანერი",
         cocoBottle: "კოკოს ბოთლი",
         tomFord: "ტომ ფორდი",
-        cocoChanel: "კოკო შანელი"
-      }
-    }
+        cocoChanel: "კოკო შანელი",
+      },
+    },
   };
 
   const t = homeTranslations[language];
@@ -65,9 +67,12 @@ export default function HomePage() {
           {/* Badge */}
           <div
             className="absolute bottom-0 right-0 text-white font-medium shadow-md px-6 py-3"
-            style={{ 
+            style={{
               backgroundColor: "var(--golden-brown)",
-              fontFamily: language === 'ge' ? "var(--font-header-ge)" : "var(--font-primary-en)"
+              fontFamily:
+                language === "ge"
+                  ? "var(--font-header-ge)"
+                  : "var(--font-primary-en)",
             }}
           >
             <span className="font-bold text-xl">{t.badge.discount}</span>
@@ -80,25 +85,49 @@ export default function HomePage() {
 
         {/* RIGHT SIDE CONTENT */}
         <div className="flex flex-col justify-center h-full">
-          <div className="flex items-center justify-between mb-6">
-            <h2 
-              className="text-5xl font-bold tracking-wide"
-              style={{ fontFamily: language === 'ge' ? "var(--font-header-ge)" : "var(--font-primary-en)" }}
-            >
-              {t.hero.title}
-              <br />
-              <span className="text-3xl font-light">{t.hero.subtitle}</span>
-            </h2>
-            <img
-              src={bottle}
-              alt={t.altTexts.cocoBottle}
-              className="w-28 h-28 rounded-full object-cover shadow-md"
-            />
+          <div className="flex items-center justify-center mb-6">
+            <div className="flex items-center gap-8">
+              <div
+                className="text-5xl font-bold tracking-wide"
+                style={{
+                  fontFamily:
+                    language === "ge"
+                      ? "var(--font-header-ge)"
+                      : "var(--font-primary-en)",
+                }}
+              >
+                {/* First line - Title 70% left */}
+                <div className="w-full text-left">
+                  <span className="inline-block" style={{ width: "70%" }}>
+                    {t.hero.title}
+                  </span>
+                </div>
+                {/* Second line - Subtitle 30% right */}
+                <div className="w-full flex justify-end">
+                  <span
+                    className="text-3xl font-light inline-block"
+                    style={{ width: "30%" }}
+                  >
+                    {t.hero.subtitle}
+                  </span>
+                </div>
+              </div>
+              <img
+                src={bottle}
+                alt={t.altTexts.cocoBottle}
+                className="w-40 h-40 rounded-full object-cover shadow-md"
+              />
+            </div>
           </div>
 
-          <p 
+          <p
             className="text-gray-600 leading-relaxed mb-8 max-w-lg"
-            style={{ fontFamily: language === 'ge' ? "var(--font-primary-ge)" : "var(--font-primary-en)" }}
+            style={{
+              fontFamily:
+                language === "ge"
+                  ? "var(--font-primary-ge)"
+                  : "var(--font-primary-en)",
+            }}
           >
             {t.description}
           </p>
@@ -112,9 +141,14 @@ export default function HomePage() {
                 alt={t.altTexts.tomFord}
                 className="w-24 h-36 object-contain mx-auto mb-4"
               />
-              <button 
+              <button
                 className="text-sm font-medium uppercase tracking-wide text-gray-800 hover:underline flex items-center justify-center gap-1"
-                style={{ fontFamily: language === 'ge' ? "var(--font-primary-ge)" : "var(--font-primary-en)" }}
+                style={{
+                  fontFamily:
+                    language === "ge"
+                      ? "var(--font-primary-ge)"
+                      : "var(--font-primary-en)",
+                }}
               >
                 {t.shopNow} <span>↗</span>
               </button>
@@ -127,9 +161,14 @@ export default function HomePage() {
                 alt={t.altTexts.cocoChanel}
                 className="w-24 h-36 object-contain mx-auto mb-4"
               />
-              <button 
+              <button
                 className="text-sm font-medium uppercase tracking-wide text-gray-800 hover:underline flex items-center justify-center gap-1"
-                style={{ fontFamily: language === 'ge' ? "var(--font-primary-ge)" : "var(--font-primary-en)" }}
+                style={{
+                  fontFamily:
+                    language === "ge"
+                      ? "var(--font-primary-ge)"
+                      : "var(--font-primary-en)",
+                }}
               >
                 {t.shopNow} <span>↗</span>
               </button>
