@@ -39,7 +39,7 @@
   font-display: swap;
 }
 
-// Noto Sans Georgian Font Family - Local Files (for Georgian)
+// Noto Sans Georgian Font Family - Local Files (for Georgian body text)
 @font-face {
   font-family: "Noto Sans Georgian";
   src: url("/src/assets/fonts/Noto_Sans_Georgian/static/NotoSansGeorgian-Light.ttf") format("truetype");
@@ -76,6 +76,17 @@
   font-family: "Noto Sans Georgian";
   src: url("/src/assets/fonts/Noto_Sans_Georgian/static/NotoSansGeorgian-Bold.ttf") format("truetype");
   font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+// BPG Nino Mtavruli Font Family - Local Files (for Georgian headers)
+@font-face {
+  font-family: "BPG Nino Mtavruli";
+  src: url("../fonts/bpg-nino-mtavruli/fonts/bpg-nino-mtavruli-webfont.woff2") format("woff2"),
+       url("../fonts/bpg-nino-mtavruli/fonts/bpg-nino-mtavruli-webfont.woff") format("woff"),
+       url("../fonts/bpg-nino-mtavruli/fonts/bpg-nino-mtavruli-webfont.ttf") format("truetype");
+  font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
