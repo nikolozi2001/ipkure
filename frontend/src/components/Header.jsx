@@ -10,6 +10,28 @@ export default function Header() {
   // Helper function to create language-aware links
   const createLink = (path) => `/${language}${path}`;
 
+  // Navigation translations
+  const navTranslations = {
+    en: {
+      home: "HOME",
+      brand: "BRAND", 
+      men: "MEN",
+      women: "WOMEN",
+      giftSets: "GIFT SETS",
+      contact: "CONTACT US"
+    },
+    ge: {
+      home: "მთავარი",
+      brand: "ბრენდი",
+      men: "მამაკაცი", 
+      women: "ქალი",
+      giftSets: "სასაჩუქრე ნაკრები",
+      contact: "კონტაქტი"
+    }
+  };
+
+  const nav = navTranslations[language];
+
   return (
     <header className="w-full bg-white shadow-sm">
       <div className="container mx-auto flex items-center justify-between py-4 px-6">
@@ -24,18 +46,18 @@ export default function Header() {
         {/* Navigation */}
         <nav className="hidden md:flex items-center space-x-6 text-sm font-medium text-gray-700">
           <Link to={createLink("/")} className="text-black font-semibold">
-            HOME
+            {nav.home}
           </Link>
           <span className="h-4 border-r border-gray-300"></span>
-          <Link to={createLink("/brand")}>BRAND</Link>
+          <Link to={createLink("/brand")}>{nav.brand}</Link>
           <span className="h-4 border-r border-gray-300"></span>
-          <Link to={createLink("/men")}>MEN</Link>
+          <Link to={createLink("/men")}>{nav.men}</Link>
           <span className="h-4 border-r border-gray-300"></span>
-          <Link to={createLink("/women")}>WOMEN</Link>
+          <Link to={createLink("/women")}>{nav.women}</Link>
           <span className="h-4 border-r border-gray-300"></span>
-          <Link to={createLink("/gift_sets")}>GIFT SETS</Link>
+          <Link to={createLink("/gift_sets")}>{nav.giftSets}</Link>
           <span className="h-4 border-r border-gray-300"></span>
-          <Link to={createLink("/contacts")}>CONTACT US</Link>
+          <Link to={createLink("/contacts")}>{nav.contact}</Link>
         </nav>
 
         {/* Right side: Language switcher and Icons */}
