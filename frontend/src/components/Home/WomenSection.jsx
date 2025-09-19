@@ -102,7 +102,7 @@ export default function WomenSection() {
           <div className="grid grid-cols-2 gap-4 sm:gap-6 max-w-md sm:max-w-lg lg:max-w-xl mx-auto lg:mx-0">
             {/* Product 1 - With View More Overlay */}
             <div
-              className="p-4 sm:p-6 text-center hover:shadow-xl transition-all duration-300 aspect-square flex flex-col relative rounded-lg group"
+              className="p-4 sm:p-6 text-center hover:shadow-xl transition-all duration-300 aspect-square flex flex-col relative group"
               style={{
                 borderColor: "var(--golden-brown)",
                 borderWidth: "2px",
@@ -117,7 +117,7 @@ export default function WomenSection() {
                 />
               </div>
               {/* Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
+              <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <button
                   className="px-4 py-2 text-xs sm:text-sm font-medium uppercase tracking-wide rounded transition-all duration-200 hover:scale-105"
                   style={{
@@ -142,7 +142,7 @@ export default function WomenSection() {
 
             {/* Product 2 - With Exclusive Tag */}
             <div
-              className="p-4 sm:p-6 text-center hover:shadow-xl transition-all duration-300 aspect-square flex flex-col relative rounded-lg group"
+              className="p-4 sm:p-6 text-center hover:shadow-xl transition-all duration-300 aspect-square flex flex-col relative group"
               style={{
                 borderColor: "var(--golden-brown)",
                 borderWidth: "2px",
@@ -171,7 +171,7 @@ export default function WomenSection() {
                 {t.exclusive}
               </span>
               {/* Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
+              <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <button
                   className="px-4 py-2 text-xs sm:text-sm font-medium uppercase tracking-wide rounded transition-all duration-200 hover:scale-105"
                   style={{
@@ -196,7 +196,7 @@ export default function WomenSection() {
 
             {/* Product 3 */}
             <div
-              className="p-4 sm:p-6 text-center hover:shadow-xl transition-all duration-300 aspect-square flex flex-col relative rounded-lg group"
+              className="p-4 sm:p-6 text-center hover:shadow-xl transition-all duration-300 aspect-square flex flex-col relative group"
               style={{
                 borderColor: "var(--golden-brown)",
                 borderWidth: "2px",
@@ -211,7 +211,7 @@ export default function WomenSection() {
                 />
               </div>
               {/* Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
+              <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <button
                   className="px-4 py-2 text-xs sm:text-sm font-medium uppercase tracking-wide rounded transition-all duration-200 hover:scale-105"
                   style={{
@@ -236,7 +236,7 @@ export default function WomenSection() {
 
             {/* Product 4 */}
             <div
-              className="p-4 sm:p-6 text-center hover:shadow-xl transition-all duration-300 aspect-square flex flex-col relative rounded-lg group"
+              className="p-4 sm:p-6 text-center hover:shadow-xl transition-all duration-300 aspect-square flex flex-col relative group"
               style={{
                 borderColor: "var(--golden-brown)",
                 borderWidth: "2px",
@@ -251,7 +251,7 @@ export default function WomenSection() {
                 />
               </div>
               {/* Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
+              <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <button
                   className="px-4 py-2 text-xs sm:text-sm font-medium uppercase tracking-wide rounded transition-all duration-200 hover:scale-105"
                   style={{
