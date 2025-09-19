@@ -70,7 +70,7 @@ export default function HomePage() {
           />
           {/* Badge */}
           <div
-            className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 text-white font-medium shadow-md px-3 py-2 sm:px-6 sm:py-3"
+            className="absolute bottom-0 right-0 text-white font-medium shadow-md px-3 py-2 sm:px-6 sm:py-3"
             style={{
               backgroundColor: "var(--golden-brown)",
               fontFamily:
