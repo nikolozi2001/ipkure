@@ -47,8 +47,8 @@ export const useDocumentTitle = (pageTitle = '') => {
         'brand': 'brand',
         'men': 'men', 
         'women': 'women',
-        'gift-sets': 'giftSets',
-        'contact': 'contact'
+        'gift_sets': 'giftSets',
+        'contacts': 'contact'
       };
       
       currentPageTitle = pathToPageMap[pagePath] || 'home';
