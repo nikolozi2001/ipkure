@@ -1,8 +1,8 @@
 import React from "react";
 import { useLanguage } from "../../hooks/useLanguage";
 import womanImg from "../../assets/images/woman-perfume.jpg";
-import perfume1 from "../../assets/images/perfume1.webp";
-import perfume2 from "../../assets/images/perfume2.jpg";
+import perfume1 from "../../assets/images/women1.png";
+import perfume2 from "../../assets/images/women2.png";
 import perfume3 from "../../assets/images/perfume3.avif";
 import perfume4 from "../../assets/images/perfume2.jpg";
 

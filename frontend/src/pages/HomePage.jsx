@@ -2,8 +2,8 @@
 import { useLanguage } from "../hooks/useLanguage";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import perfume1 from "../assets/images/perfume1.webp"; // replace with your image
-import perfume2 from "../assets/images/perfume2.jpg"; // replace with your image
-import perfume3 from "../assets/images/perfume3.avif"; // replace with your image
+import perfume2 from "../assets/images/women4.png"; // replace with your image
+import perfume3 from "../assets/images/women3.png"; // replace with your image
 import bottle from "../assets/images/bottle.png"; // round bottle image
 import WomenSection from "../components/Home/WomenSection";
 import MenSection from "../components/Home/MenSection";
@@ -68,7 +68,7 @@ export default function HomePage() {
           <img
             src={perfume1}
             alt={t.altTexts.perfumeBanner}
-            className="w-full h-full object-cover shadow-lg rounded-lg lg:rounded-none"
+            className="w-full h-full object-cover shadow-lg"
           />
           {/* Badge */}
           <div
