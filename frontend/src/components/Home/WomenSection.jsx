@@ -50,7 +50,6 @@ export default function WomenSection() {
           <div
             className="font-medium px-3 py-2 sm:px-6 sm:py-3 mb-4 inline-block"
             style={{
-              //   backgroundColor: "var(--text-dark)",
               color: "var(--text-dark)",
               fontFamily:
                 language === "ge"
@@ -58,7 +57,15 @@ export default function WomenSection() {
                   : "var(--font-primary-en)",
             }}
           >
-            <span className="text-lg sm:text-xl lg:text-3xl font-light tracking-widest uppercase">
+            <span
+              className="text-lg sm:text-xl lg:text-3xl font-light tracking-widest uppercase"
+              style={{
+                fontFamily:
+                  language === "ge"
+                    ? "var(--font-header-ge)"
+                    : "var(--font-primary-en)",
+              }}
+            >
               {t.forWomen}
             </span>
           </div>
@@ -71,7 +78,7 @@ export default function WomenSection() {
             <img
               src={womanImg}
               alt={t.altTexts.womanPerfume}
-              className="w-full h-full object-cover shadow-lg"
+              className="w-full h-full object-cover"
             />
           </div>
         </div>
