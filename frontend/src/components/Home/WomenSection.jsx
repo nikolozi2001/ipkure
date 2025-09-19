@@ -42,23 +42,16 @@ export default function WomenSection() {
   const t = womenTranslations[language];
 
   return (
-    <section
-      className="w-full py-12 lg:py-16"
-      style={{ backgroundColor: "var(--background-light)" }}
-    >
-      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 items-center">
+    <section className="w-full py-12 lg:py-16">
+      <div className="w-full mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 items-center">
         {/* Left: Image with title */}
-        <div className="relative h-64 sm:h-80 lg:h-full order-1 lg:order-none">
-          <img
-            src={womanImg}
-            alt={t.altTexts.womanPerfume}
-            className="w-full h-full object-cover shadow-lg rounded-lg lg:rounded-none"
-          />
-          {/* Title Badge */}
+        <div className="order-1 lg:order-none">
+          {/* Title Badge - Above the image */}
           <div
-            className="absolute top-4 left-4 lg:top-6 lg:left-6 text-white font-medium shadow-md px-3 py-2 sm:px-6 sm:py-3 rounded-md"
+            className="font-medium px-3 py-2 sm:px-6 sm:py-3 mb-4 inline-block"
             style={{
-              backgroundColor: "var(--golden-brown)",
+              //   backgroundColor: "var(--text-dark)",
+              color: "var(--text-dark)",
               fontFamily:
                 language === "ge"
                   ? "var(--font-header-ge)"
@@ -68,6 +61,18 @@ export default function WomenSection() {
             <span className="text-lg sm:text-xl lg:text-3xl font-light tracking-widest uppercase">
               {t.forWomen}
             </span>
+          </div>
+
+          {/* Image container */}
+          <div
+            className="relative h-64 sm:h-80 lg:h-full"
+            style={{ backgroundColor: "var(--secondary-color)" }}
+          >
+            <img
+              src={womanImg}
+              alt={t.altTexts.womanPerfume}
+              className="w-full h-full object-cover shadow-lg"
+            />
           </div>
         </div>
 
