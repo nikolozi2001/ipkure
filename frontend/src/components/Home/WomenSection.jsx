@@ -43,9 +43,9 @@ export default function WomenSection() {
 
   return (
     <section className="w-full py-12 lg:py-16">
-      <div className="w-full mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 items-center">
+      <div className="w-full mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 lg:items-stretch">
         {/* Left: Image with title */}
-        <div className="order-1 lg:order-none">
+        <div className="order-1 lg:order-none flex flex-col">
           {/* Title Badge - Above the image */}
           <div
             className="font-medium px-3 py-2 sm:px-6 sm:py-3 mb-4 inline-block"
@@ -72,7 +72,7 @@ export default function WomenSection() {
 
           {/* Image container */}
           <div
-            className="relative h-64 sm:h-80 lg:h-full"
+            className="relative flex-1 min-h-64 sm:min-h-80 lg:min-h-96"
             style={{ backgroundColor: "var(--secondary-color)" }}
           >
             <img
@@ -84,7 +84,7 @@ export default function WomenSection() {
         </div>
 
         {/* Right: Content */}
-        <div className="flex flex-col justify-center h-full px-4 sm:px-6 lg:px-0 order-2 lg:order-none">
+        <div className="flex flex-col justify-start px-4 sm:px-6 lg:px-0 order-2 lg:order-none">
           <div className="mb-4 sm:mb-6">
             <h3
               className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-wide mb-4"
