@@ -6,6 +6,7 @@ import perfume2 from "../assets/images/perfume2.jpg"; // replace with your image
 import perfume3 from "../assets/images/perfume3.avif"; // replace with your image
 import bottle from "../assets/images/bottle.png"; // round bottle image
 import WomenSection from "../components/Home/WomenSection";
+import MenSection from "../components/Home/MenSection";
 
 export default function HomePage() {
   const { language } = useLanguage();
@@ -220,6 +221,7 @@ export default function HomePage() {
       </div>
       {/* WOMEN SECTION */}
       <WomenSection />
+      <MenSection />
     </div>
   );
 }
