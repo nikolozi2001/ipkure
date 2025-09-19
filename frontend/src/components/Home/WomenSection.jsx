@@ -125,7 +125,7 @@ export default function WomenSection() {
                 <img
                   src={perfume1}
                   alt={t.altTexts.perfume}
-                  className="w-16 h-20 sm:w-20 sm:h-24 lg:w-24 lg:h-28 object-contain"
+                  className="w-full h-auto object-contain"
                 />
               </div>
               {/* Overlay */}
@@ -165,7 +165,7 @@ export default function WomenSection() {
                 <img
                   src={perfume2}
                   alt={t.altTexts.perfume}
-                  className="w-16 h-20 sm:w-20 sm:h-24 lg:w-24 lg:h-28 object-contain"
+                  className="w-full h-auto object-contain"
                 />
               </div>
               {/* Exclusive Tag */}
@@ -219,7 +219,7 @@ export default function WomenSection() {
                 <img
                   src={perfume3}
                   alt={t.altTexts.perfume}
-                  className="w-16 h-20 sm:w-20 sm:h-24 lg:w-24 lg:h-28 object-contain"
+                  className="w-full h-auto object-contain"
                 />
               </div>
               {/* Overlay */}
@@ -259,7 +259,7 @@ export default function WomenSection() {
                 <img
                   src={perfume4}
                   alt={t.altTexts.perfume}
-                  className="w-16 h-20 sm:w-20 sm:h-24 lg:w-24 lg:h-28 object-contain"
+                  className="w-full h-auto object-contain"
                 />
               </div>
               {/* Overlay */}

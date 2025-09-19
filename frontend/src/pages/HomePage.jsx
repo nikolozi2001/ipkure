@@ -153,7 +153,7 @@ export default function HomePage() {
                 <img
                   src={perfume2}
                   alt={t.altTexts.tomFord}
-                  className="w-24 h-32 sm:w-32 sm:h-40 lg:w-40 lg:h-52 object-contain"
+                  className="w-full h-auto object-contain"
                 />
               </div>
               <button
@@ -191,7 +191,7 @@ export default function HomePage() {
                 <img
                   src={perfume3}
                   alt={t.altTexts.cocoChanel}
-                  className="w-24 h-32 sm:w-32 sm:h-40 lg:w-40 lg:h-52 object-contain"
+                  className="w-full h-auto object-contain"
                 />
               </div>
               <button
