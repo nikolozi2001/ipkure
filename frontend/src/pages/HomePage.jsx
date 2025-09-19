@@ -8,9 +8,9 @@ import bottle from "../assets/images/bottle.png"; // round bottle image
 
 export default function HomePage() {
   const { language } = useLanguage();
-  
+
   // Set dynamic title for homepage
-  useDocumentTitle('home');
+  useDocumentTitle("home");
 
   // Homepage translations
   const homeTranslations = {
@@ -70,7 +70,7 @@ export default function HomePage() {
           />
           {/* Badge */}
           <div
-            className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 text-white font-medium shadow-md px-3 py-2 sm:px-6 sm:py-3 rounded-md"
+            className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 text-white font-medium shadow-md px-3 py-2 sm:px-6 sm:py-3"
             style={{
               backgroundColor: "var(--golden-brown)",
               fontFamily:
@@ -79,7 +79,9 @@ export default function HomePage() {
                   : "var(--font-primary-en)",
             }}
           >
-            <span className="font-bold text-base sm:text-xl">{t.badge.discount}</span>
+            <span className="font-bold text-base sm:text-xl">
+              {t.badge.discount}
+            </span>
             <br />
             <span className="uppercase text-xs sm:text-lg tracking-wide">
               {t.badge.text}
@@ -118,7 +120,7 @@ export default function HomePage() {
               className="w-20 h-20 sm:w-32 sm:h-32 lg:w-40 lg:h-40 rounded-full object-contain shadow-md flex-shrink-0"
               style={{
                 backgroundColor: "var(--secondary-color)",
-                padding: "8px sm:10px"
+                padding: "8px sm:10px",
               }}
             />
           </div>
@@ -136,10 +138,10 @@ export default function HomePage() {
           </p>
 
           {/* Product Cards */}
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 max-w-xs sm:max-w-md mx-auto">
+          <div className="grid grid-cols-2 gap-4 sm:gap-6 max-w-lg sm:max-w-xl mx-auto">
             {/* Product 1 */}
             <div
-              className="p-3 sm:p-4 text-center hover:shadow-lg transition aspect-square flex flex-col relative rounded-lg"
+              className="p-4 sm:p-6 text-center hover:shadow-lg transition aspect-square flex flex-col relative"
               style={{
                 borderColor: "var(--golden-brown)",
                 borderWidth: "1px",
@@ -150,11 +152,11 @@ export default function HomePage() {
                 <img
                   src={perfume2}
                   alt={t.altTexts.tomFord}
-                  className="w-12 h-16 sm:w-16 sm:h-20 lg:w-20 lg:h-24 object-contain"
+                  className="w-24 h-32 sm:w-32 sm:h-40 lg:w-40 lg:h-52 object-contain"
                 />
               </div>
               <button
-                className="absolute bottom-0 left-0 right-0 text-xs font-medium uppercase tracking-wide flex items-center justify-center gap-1 py-2 cursor-pointer transition-all duration-200 hover:scale-105 rounded-b-lg"
+                className="absolute bottom-0 left-0 right-0 text-sm font-medium uppercase tracking-wide flex items-center justify-center gap-1 py-3 cursor-pointer"
                 style={{
                   fontFamily:
                     language === "ge"
@@ -177,7 +179,7 @@ export default function HomePage() {
 
             {/* Product 2 */}
             <div
-              className="p-3 sm:p-4 text-center hover:shadow-lg transition aspect-square flex flex-col relative rounded-lg"
+              className="p-4 sm:p-6 text-center hover:shadow-lg transition aspect-square flex flex-col relative"
               style={{
                 borderColor: "var(--golden-brown)",
                 borderWidth: "1px",
@@ -188,11 +190,11 @@ export default function HomePage() {
                 <img
                   src={perfume3}
                   alt={t.altTexts.cocoChanel}
-                  className="w-12 h-16 sm:w-16 sm:h-20 lg:w-20 lg:h-24 object-contain"
+                  className="w-24 h-32 sm:w-32 sm:h-40 lg:w-40 lg:h-52 object-contain"
                 />
               </div>
               <button
-                className="absolute bottom-0 left-0 right-0 text-xs font-medium uppercase tracking-wide flex items-center justify-center gap-1 py-2 cursor-pointer transition-all duration-200 hover:scale-105 rounded-b-lg"
+                className="absolute bottom-0 left-0 right-0 text-sm font-medium uppercase tracking-wide flex items-center justify-center gap-1 py-3 cursor-pointer"
                 style={{
                   fontFamily:
                     language === "ge"
