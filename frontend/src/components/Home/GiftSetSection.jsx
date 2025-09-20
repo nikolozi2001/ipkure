@@ -11,8 +11,8 @@ export default function GiftSetSection() {
 
   const giftTranslations = {
     en: {
-      forGifts: "GIFT SETS",
-      brandName: "LUXURY COLLECTION",
+      forGifts: "LIMITED EDITION",
+      brandName: "GIFT SETS",
       description:
         "A fragrance coffret, also known as a perfume gift set, is the perfect way to introduce someone to a new signature scent. These carefully curated collections make exceptional gifts for any occasion.",
       viewMore: "View More",
@@ -23,8 +23,8 @@ export default function GiftSetSection() {
       },
     },
     ge: {
-      forGifts: "საჩუქრების ნაკრებები",
-      brandName: "ლუქს კოლექცია",
+      forGifts: "შეზღუდული გამოცემა",
+      brandName: "საჩუქრების ნაკრებები",
       description:
         "არომატული კოფრეტი, რომელიც ასევე ცნობილია როგორც პარფიუმის საჩუქრების ნაკრები, შესანიშნავი გზაა რომ ვინმეს გააცნოთ ახალი ხელმოწერის არომატი. ეს ყურადღებით შერჩეული კოლექციები შესანიშნავ საჩუქარს წარმოადგენს ნებისმიერი შემთხვევისთვის.",
       viewMore: "მეტის ნახვა",
@@ -39,7 +39,10 @@ export default function GiftSetSection() {
   const t = giftTranslations[language];
 
   return (
-    <section className="w-full py-12 lg:py-16">
+    <section
+      className="w-full py-12 lg:py-16"
+      style={{ backgroundColor: "var(--gift-set-bg)" }}
+    >
       <div className="w-full mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 lg:items-stretch">
         {/* Left: Image with title */}
         <div className="order-1 lg:order-none flex flex-col">

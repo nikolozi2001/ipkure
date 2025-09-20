@@ -122,7 +122,7 @@ export default function HomePage() {
               alt={t.altTexts.cocoBottle}
               className="w-20 h-20 sm:w-32 sm:h-32 lg:w-40 lg:h-40 rounded-full object-contain shadow-md flex-shrink-0"
               style={{
-                backgroundColor: "var(--secondary-color)",
+                backgroundColor: "var(--bottle-bg)",
                 padding: "8px sm:10px",
               }}
             />
