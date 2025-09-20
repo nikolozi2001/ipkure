@@ -8,6 +8,7 @@ import bottle from "../assets/images/bottle.png"; // round bottle image
 import WomenSection from "../components/Home/WomenSection";
 import MenSection from "../components/Home/MenSection";
 import GiftSets from "../components/Home/GiftSetSection";
+import FollowUsSection from "../components/Home/FollowUsSection";
 
 export default function HomePage() {
   const { language } = useLanguage();
@@ -224,6 +225,7 @@ export default function HomePage() {
       <WomenSection />
       <MenSection />
       <GiftSets />
+      <FollowUsSection />
     </div>
   );
 }
