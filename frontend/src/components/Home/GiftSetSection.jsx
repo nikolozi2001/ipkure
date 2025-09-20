@@ -1,10 +1,8 @@
 import React from "react";
 import { useLanguage } from "../../hooks/useLanguage";
+import { ArrowRight } from "lucide-react";
 import giftsetBox from "../../assets/images/giftset-box.jpg";
-import gift1 from "../../assets/images/perfume1.webp";
-import gift2 from "../../assets/images/perfume2.jpg";
-import gift3 from "../../assets/images/perfume3.avif";
-import gift4 from "../../assets/images/women1.png";
+import giftBoxSetImage from "../../assets/images/giftboxsetimage.webp";
 
 export default function GiftSetSection() {
   const { language } = useLanguage();
@@ -15,10 +13,12 @@ export default function GiftSetSection() {
       brandName: "GIFT SETS",
       description:
         "A fragrance coffret, also known as a perfume gift set, is the perfect way to introduce someone to a new signature scent. These carefully curated collections make exceptional gifts for any occasion.",
+      discoverNow: "Discover Now",
       viewMore: "View More",
       exclusive: "Limited Edition",
       altTexts: {
         giftSet: "Gift Set Collection",
+        giftBoxSet: "Gift Box Set",
         perfume: "Perfume",
       },
     },
@@ -27,10 +27,12 @@ export default function GiftSetSection() {
       brandName: "საჩუქრების ნაკრებები",
       description:
         "არომატული კოფრეტი, რომელიც ასევე ცნობილია როგორც პარფიუმის საჩუქრების ნაკრები, შესანიშნავი გზაა რომ ვინმეს გააცნოთ ახალი ხელმოწერის არომატი. ეს ყურადღებით შერჩეული კოლექციები შესანიშნავ საჩუქარს წარმოადგენს ნებისმიერი შემთხვევისთვის.",
+      discoverNow: "აღმოაჩინე ახლავე",
       viewMore: "მეტის ნახვა",
       exclusive: "შეზღუდული გამოცემა",
       altTexts: {
         giftSet: "საჩუქრების კოლექცია",
+        giftBoxSet: "საჩუქრების ყუთის ნაკრები",
         perfume: "პარფიუმი",
       },
     },
@@ -84,7 +86,7 @@ export default function GiftSetSection() {
         </div>
 
         {/* Right: Content */}
-        <div className="flex flex-col justify-start px-4 sm:px-6 lg:px-0 order-2 lg:order-none">
+        <div className="flex flex-col justify-center items-center px-4 sm:px-6 lg:px-0 order-2 lg:order-none text-center">
           <div className="mb-4 sm:mb-6">
             <h3
               className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-wide mb-4"
@@ -110,180 +112,34 @@ export default function GiftSetSection() {
             </p>
           </div>
 
-          {/* Product Cards Grid */}
-          <div className="grid grid-cols-2 gap-4 sm:gap-6 max-w-md sm:max-w-lg lg:max-w-xl mx-auto lg:mx-0">
-            {/* Product 1 - With Exclusive Tag */}
-            <div
-              className="p-4 sm:p-6 text-center hover:shadow-xl transition-all duration-300 aspect-square flex flex-col relative group"
-              style={{
-                borderColor: "var(--golden-brown)",
-                borderWidth: "2px",
-                borderStyle: "solid",
-              }}
-            >
-              <div className="flex-1 flex items-center justify-center">
-                <img
-                  src={gift1}
-                  alt={t.altTexts.perfume}
-                  className="w-full h-auto object-contain"
-                />
-              </div>
-              {/* Exclusive Tag */}
-              <span
-                className="absolute top-2 right-2 text-xs uppercase px-2 py-1 rounded font-medium"
-                style={{
-                  backgroundColor: "var(--golden-brown)",
-                  color: "white",
-                  fontFamily:
-                    language === "ge"
-                      ? "var(--font-primary-ge)"
-                      : "var(--font-primary-en)",
-                }}
-              >
-                {t.exclusive}
-              </span>
-              {/* Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <button
-                  className="px-4 py-2 text-xs sm:text-sm font-medium uppercase tracking-wide rounded transition-all duration-200 hover:scale-105"
-                  style={{
-                    backgroundColor: "var(--golden-brown)",
-                    color: "white",
-                    fontFamily:
-                      language === "ge"
-                        ? "var(--font-primary-ge)"
-                        : "var(--font-primary-en)",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.backgroundColor = "var(--accent-color)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.backgroundColor = "var(--golden-brown)";
-                  }}
-                >
-                  {t.viewMore}
-                </button>
-              </div>
-            </div>
+          {/* Gift Box Set Image */}
+          <div className="mb-6">
+            <img
+              src={giftBoxSetImage}
+              alt={t.altTexts.giftBoxSet}
+              className="max-w-xs w-full h-auto object-contain"
+            />
+          </div>
 
-            {/* Product 2 - With View More Overlay */}
-            <div
-              className="p-4 sm:p-6 text-center hover:shadow-xl transition-all duration-300 aspect-square flex flex-col relative group"
+          {/* Discover Now Text */}
+          <div className="mb-4">
+            <span
+              className="text-lg font-medium text-gray-800"
               style={{
-                borderColor: "var(--golden-brown)",
-                borderWidth: "2px",
-                borderStyle: "solid",
+                fontFamily:
+                  language === "ge"
+                    ? "var(--font-primary-ge)"
+                    : "var(--font-primary-en)",
               }}
             >
-              <div className="flex-1 flex items-center justify-center">
-                <img
-                  src={gift2}
-                  alt={t.altTexts.perfume}
-                  className="w-full h-auto object-contain"
-                />
-              </div>
-              {/* Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <button
-                  className="px-4 py-2 text-xs sm:text-sm font-medium uppercase tracking-wide rounded transition-all duration-200 hover:scale-105"
-                  style={{
-                    backgroundColor: "var(--golden-brown)",
-                    color: "white",
-                    fontFamily:
-                      language === "ge"
-                        ? "var(--font-primary-ge)"
-                        : "var(--font-primary-en)",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.backgroundColor = "var(--accent-color)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.backgroundColor = "var(--golden-brown)";
-                  }}
-                >
-                  {t.viewMore}
-                </button>
-              </div>
-            </div>
+              {t.discoverNow}
+            </span>
+          </div>
 
-            {/* Product 3 */}
-            <div
-              className="p-4 sm:p-6 text-center hover:shadow-xl transition-all duration-300 aspect-square flex flex-col relative group"
-              style={{
-                borderColor: "var(--golden-brown)",
-                borderWidth: "2px",
-                borderStyle: "solid",
-              }}
-            >
-              <div className="flex-1 flex items-center justify-center">
-                <img
-                  src={gift3}
-                  alt={t.altTexts.perfume}
-                  className="w-full h-auto object-contain"
-                />
-              </div>
-              {/* Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <button
-                  className="px-4 py-2 text-xs sm:text-sm font-medium uppercase tracking-wide rounded transition-all duration-200 hover:scale-105"
-                  style={{
-                    backgroundColor: "var(--golden-brown)",
-                    color: "white",
-                    fontFamily:
-                      language === "ge"
-                        ? "var(--font-primary-ge)"
-                        : "var(--font-primary-en)",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.backgroundColor = "var(--accent-color)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.backgroundColor = "var(--golden-brown)";
-                  }}
-                >
-                  {t.viewMore}
-                </button>
-              </div>
-            </div>
-
-            {/* Product 4 */}
-            <div
-              className="p-4 sm:p-6 text-center hover:shadow-xl transition-all duration-300 aspect-square flex flex-col relative group"
-              style={{
-                borderColor: "var(--golden-brown)",
-                borderWidth: "2px",
-                borderStyle: "solid",
-              }}
-            >
-              <div className="flex-1 flex items-center justify-center">
-                <img
-                  src={gift4}
-                  alt={t.altTexts.perfume}
-                  className="w-full h-auto object-contain"
-                />
-              </div>
-              {/* Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <button
-                  className="px-4 py-2 text-xs sm:text-sm font-medium uppercase tracking-wide rounded transition-all duration-200 hover:scale-105"
-                  style={{
-                    backgroundColor: "var(--golden-brown)",
-                    color: "white",
-                    fontFamily:
-                      language === "ge"
-                        ? "var(--font-primary-ge)"
-                        : "var(--font-primary-en)",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.backgroundColor = "var(--accent-color)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.backgroundColor = "var(--golden-brown)";
-                  }}
-                >
-                  {t.viewMore}
-                </button>
-              </div>
+          {/* Discover Icon */}
+          <div>
+            <div className="w-12 h-12 bg-[#c69a5d] rounded-full flex items-center justify-center cursor-pointer hover:bg-[#b8925a] transition-colors duration-300">
+              <ArrowRight className="w-6 h-6 text-white" />
             </div>
           </div>
         </div>
