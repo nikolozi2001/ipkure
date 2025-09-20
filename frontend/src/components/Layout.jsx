@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useLanguage } from '../hooks/useLanguage';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import Header from './Header';
+import Footer from './Footer';
 
 export default function Layout({ children }) {
   const { language } = useLanguage();
@@ -21,6 +22,7 @@ export default function Layout({ children }) {
       <main>
         {children}
       </main>
+      <Footer />
     </div>
   );
 }
