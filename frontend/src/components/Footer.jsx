@@ -36,10 +36,10 @@ const Footer = () => {
       copyright: `© ${currentYear} Copyright Ipkure | All Rights Reserved.`,
     },
     ge: {
-      brandName: "იპკიურე",
+      brandName: "იპკურე",
       description:
         "ყველაზე პოპულარული პარფიუმები არის უდროო არომატების და ახლახან ჩვენს გულებს მოპოვებული სურნელების ნაზავი, დაწყებული ზაფხულისგან ბოთლში ძლიერ სენსუალურ სიყვარულის ნოტებამდე.",
-      followUs: "გაჰყევით ჩვენ",
+      followUs: "გამოგვყევით ჩვენ",
       quickLinks: "სწრაფი ბმულები",
       help: "დახმარება",
       socialMedia: {

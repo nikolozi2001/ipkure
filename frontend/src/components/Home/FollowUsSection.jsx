@@ -30,12 +30,12 @@ const FollowUsSection = () => {
       },
     },
     ge: {
-      followUs: "გაჰყევით ჩვენ",
+      followUs: "გამოგვყევით ჩვენ",
       instagramHandle: "ipkure@112",
       subtitle:
         "აღმოაჩინეთ ჩვენი უახლესი კოლექციები და კულისებს მიღმა მომენტები",
       viewProfile: "პროფილის ნახვა",
-      followButton: "გაჰყევით",
+      followButton: "გამოგვყევით",
       altTexts: {
         perfume1: "ლუქს პარფიუმის კოლექცია",
         perfume2: "პრემიუმ არომატი",
