@@ -1,7 +1,7 @@
 import React from "react";
 import { useLanguage } from "../../hooks/useLanguage";
 import { ArrowRight } from "lucide-react";
-import giftBox from "../../assets/images/bottle.png";
+import giftsetBox from "../../assets/images/giftset-box.jpg";
 import miniGiftSet from "../../assets/images/perfume1.webp";
 
 export default function GiftSetSection() {
@@ -50,7 +50,7 @@ export default function GiftSetSection() {
       </div>
 
       {/* Left Side - Product Showcase */}
-      <div className="flex-1 flex flex-col items-center justify-center relative">
+      <div className="flex-1 flex flex-col items-start justify-start relative">
         {/* Limited Edition Label */}
         <div className="mb-8">
           <p
@@ -66,28 +66,13 @@ export default function GiftSetSection() {
           </p>
         </div>
 
-        {/* Gift Box Container */}
+        {/* Gift Box Image */}
         <div className="relative">
-          {/* Gift Box with slight tilt */}
-          <div className="transform rotate-3 bg-white rounded-lg shadow-2xl p-8 border border-gray-200">
-            <div className="bg-gradient-to-br from-[#8B1538] to-[#CD5C5C] rounded-md p-6 relative">
-              {/* Perfume Bottles */}
-              <div className="flex justify-center items-center space-x-4">
-                <img
-                  src={giftBox}
-                  alt={t.altTexts.giftBox}
-                  className="w-20 h-32 object-contain"
-                />
-                <img
-                  src={miniGiftSet}
-                  alt={t.altTexts.giftBox}
-                  className="w-20 h-32 object-contain"
-                />
-              </div>
-              {/* Luxury fabric texture overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent rounded-md"></div>
-            </div>
-          </div>
+          <img
+            src={giftsetBox}
+            alt={t.altTexts.giftBox}
+            className="max-w-sm md:max-w-md w-full h-auto object-contain"
+          />
         </div>
       </div>
 
