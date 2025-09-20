@@ -5,6 +5,8 @@ import { Facebook, Instagram, Twitter } from "lucide-react";
 const Footer = () => {
   const { language } = useLanguage();
 
+  const currentYear = new Date().getFullYear();
+
   const translations = {
     en: {
       brandName: "IPKURE",
@@ -31,7 +33,7 @@ const Footer = () => {
         privacy: "Privacy Policy",
         faqs: "FAQs",
       },
-      copyright: "© 2024 Copyright Ipkure | All Rights Reserved.",
+      copyright: `© ${currentYear} Copyright Ipkure | All Rights Reserved.`,
     },
     ge: {
       brandName: "იპკიურე",
@@ -58,7 +60,7 @@ const Footer = () => {
         privacy: "კონფიდენციალურობის პოლიტიკა",
         faqs: "ხშირად დასმული კითხვები",
       },
-      copyright: "© 2024 საავტორო უფლება იპკიურე | ყველა უფლება დაცულია.",
+      copyright: `© ${currentYear} საავტორო უფლება იპკიურე | ყველა უფლება დაცულია.`,
     },
   };
 
@@ -67,9 +69,9 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
           {/* Brand Section */}
-          <div>
+          <div className="md:col-span-2">
             {/* Logo */}
             <div className="flex items-center space-x-3 mb-6">
               <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
