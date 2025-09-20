@@ -7,6 +7,7 @@ import perfume3 from "../assets/images/women3.png"; // replace with your image
 import bottle from "../assets/images/bottle.png"; // round bottle image
 import WomenSection from "../components/Home/WomenSection";
 import MenSection from "../components/Home/MenSection";
+import GiftSets from "../components/Home/GiftSetSection";
 
 export default function HomePage() {
   const { language } = useLanguage();
@@ -222,6 +223,7 @@ export default function HomePage() {
       {/* WOMEN SECTION */}
       <WomenSection />
       <MenSection />
+      <GiftSets />
     </div>
   );
 }
