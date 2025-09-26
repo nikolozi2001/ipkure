@@ -23,12 +23,13 @@ export default function BrandsGrid({ brands, onBrandClick }) {
   const t = gridTranslations[language];
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="grid grid-cols-3 gap-4 sm:gap-6">
+    <div className="w-full">
+      {/* Mobile: 2 columns, Tablet: 2 columns, Desktop: 3 columns */}
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
         {brands.slice(0, 6).map((brand) => (
           <div
             key={brand.id}
-            className="p-4 sm:p-6 text-center hover:shadow-xl transition-all duration-300 aspect-square flex flex-col relative group cursor-pointer"
+            className="p-3 sm:p-4 md:p-6 text-center hover:shadow-xl transition-all duration-300 aspect-square flex flex-col relative group cursor-pointer touch-manipulation"
             style={{
               borderColor: "var(--golden-brown)",
               borderWidth: "2px",
@@ -40,10 +41,10 @@ export default function BrandsGrid({ brands, onBrandClick }) {
               <BrandImage brand={brand} className="w-full h-full" />
             </div>
 
-            {/* Overlay */}
-            <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            {/* Overlay - Mobile friendly */}
+            <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300">
               <button
-                className="px-4 py-2 text-xs sm:text-sm font-medium uppercase tracking-wide rounded transition-all duration-200 hover:scale-105"
+                className="px-3 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium uppercase tracking-wide rounded transition-all duration-200 hover:scale-105 active:scale-95 touch-manipulation"
                 style={{
                   backgroundColor: "var(--golden-brown)",
                   color: "white",
