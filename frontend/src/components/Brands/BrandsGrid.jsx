@@ -25,8 +25,9 @@ export default function BrandsGrid({ brands, onBrandClick }) {
   const t = gridTranslations[language];
 
   return (
-    <div className="grid grid-cols-2 gap-4 sm:gap-6 max-w-md sm:max-w-lg lg:max-w-xl mx-auto lg:mx-0">
-      {brands.map((brand, index) => (
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid grid-cols-3 gap-4 sm:gap-6">
+        {brands.slice(0, 6).map((brand, index) => (
         <div 
           key={brand.id} 
           className="p-4 sm:p-6 text-center hover:shadow-xl transition-all duration-300 aspect-square flex flex-col relative group cursor-pointer"
@@ -84,7 +85,8 @@ export default function BrandsGrid({ brands, onBrandClick }) {
             </button>
           </div>
         </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
