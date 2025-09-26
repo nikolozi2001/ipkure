@@ -5,184 +5,94 @@ import { useLanguage } from "./useLanguage";
 const getBrandsData = (language) => [
   {
     id: 1,
-    name: "Chanel",
+    name: "Chance",
     category: "luxury",
     description: language === "en" 
-      ? "Timeless elegance and sophistication in every bottle" 
-      : "უდროო ელეგანტურობა და სოფისტიკურობა ყველა ბოთლში",
-    heritage: "1910",
+      ? "A whirlwind of energy and vitality, Chance is an unexpected floral fragrance that sweeps you into its world of happiness and fantasy" 
+      : "ენერგიისა და სიცოცხლისუნარიანობის ქარიშხალი, Chance არის მოულოდნელი ყვავილოვანი სურნელი, რომელიც გიყვანთ ბედნიერებისა და ფანტაზიის სამყაროში",
+    heritage: "2002",
     image: "/api/placeholder/300/200",
     logo: "/api/placeholder/150/80",
     bestsellers: 25,
     newArrivals: 5,
     featured: true,
     country: "France",
-    foundedBy: "Gabrielle Chanel"
+    foundedBy: "Jacques Polge"
   },
   {
     id: 2,
-    name: "Tom Ford",
+    name: "Chanel Chance",
     category: "luxury",
     description: language === "en" 
-      ? "Bold and luxurious modern fragrances for the contemporary individual" 
-      : "თამამი და ლუქსუსური თანამედროვე სუნამოები თანამედროვე ინდივიდისთვის",
-    heritage: "2006",
+      ? "An enchanting fragrance that captures the essence of youth and spontaneity with sparkling citrus and soft florals" 
+      : "მომხიბლავი სურნელი, რომელიც იჭერს ახალგაზრდობისა და სპონტანურობის არსს ელვარე ციტრუსითა და რბილი ყვავილებით",
+    heritage: "2002",
     image: "/api/placeholder/300/200",
     logo: "/api/placeholder/150/80",
-    bestsellers: 18,
-    newArrivals: 3,
-    country: "USA",
-    foundedBy: "Tom Ford"
+    bestsellers: 28,
+    newArrivals: 4,
+    country: "France",
+    foundedBy: "Chanel"
   },
   {
     id: 3,
-    name: "Dior",
-    category: "designer",
+    name: "Coco Chanel",
+    category: "luxury",
     description: language === "en" 
-      ? "French luxury and artistry meets modern perfumery" 
-      : "ფრანგული ლუქსი და ხელოვნება თანამედროვე პარფიუმერიასთან",
-    heritage: "1947",
+      ? "An oriental fragrance with mysterious depth, celebrating the passionate and liberated spirit of Gabrielle Chanel" 
+      : "აღმოსავლური სურნელი საიდუმლო სიღრმით, რომელიც აღნიშნავს გაბრიელ შანელის ვნებიან და გათავისუფლებულ სულს",
+    heritage: "1984",
     image: "/api/placeholder/300/200",
     logo: "/api/placeholder/150/80",
-    bestsellers: 22,
-    newArrivals: 4,
+    bestsellers: 32,
+    newArrivals: 3,
     country: "France",
-    foundedBy: "Christian Dior"
+    foundedBy: "Jacques Polge"
   },
   {
     id: 4,
-    name: "Creed",
-    category: "niche",
+    name: "Daisy",
+    category: "designer",
     description: language === "en" 
-      ? "Artisanal excellence and traditional craftsmanship since 1760" 
-      : "ხელოსნური სრულყოფილება და ტრადიციული ხელოსნობა 1760 წლიდან",
-    heritage: "1760",
+      ? "A charming and whimsical fragrance that captures the spirit of youth with fresh florals and fruity notes" 
+      : "მომხიბვლელი და ფანტაზიური სურნელი, რომელიც იჭერს ახალგაზრდობის სულს ახალი ყვავილებითა და ხილის ნოტებით",
+    heritage: "2007",
     image: "/api/placeholder/300/200",
     logo: "/api/placeholder/150/80",
-    bestsellers: 12,
-    newArrivals: 2,
-    country: "England",
-    foundedBy: "James Henry Creed"
+    bestsellers: 22,
+    newArrivals: 6,
+    country: "USA",
+    foundedBy: "Alberto Morillas"
   },
   {
     id: 5,
-    name: "Versace",
-    category: "designer",
-    description: language === "en" 
-      ? "Italian glamour and boldness in luxurious fragrances" 
-      : "იტალიური გლამური და თამამი სტილი ლუქსუსურ სუნამოებში",
-    heritage: "1978",
-    image: "/api/placeholder/300/200",
-    logo: "/api/placeholder/150/80",
-    bestsellers: 15,
-    newArrivals: 6,
-    country: "Italy",
-    foundedBy: "Gianni Versace"
-  },
-  {
-    id: 6,
-    name: "Gucci",
-    category: "popular",
-    description: language === "en" 
-      ? "Contemporary luxury with rich Italian heritage and innovative design" 
-      : "თანამედროვე ლუქსი მდიდარი იტალიური მემკვიდრეობითა და ინოვაციური დიზაინით",
-    heritage: "1921",
-    image: "/api/placeholder/300/200",
-    logo: "/api/placeholder/150/80",
-    bestsellers: 20,
-    newArrivals: 7,
-    country: "Italy",
-    foundedBy: "Guccio Gucci"
-  },
-  {
-    id: 7,
-    name: "Maison Margiela",
-    category: "niche",
-    description: language === "en" 
-      ? "Avant-garde and innovative scents that challenge conventional perfumery" 
-      : "ავანგარდული და ინოვაციური სუნები, რომლებიც აჩუქებს ჩვეულებრივ პარფიუმერიას",
-    heritage: "1988",
-    image: "/api/placeholder/300/200",
-    logo: "/api/placeholder/150/80",
-    bestsellers: 8,
-    newArrivals: 3,
-    country: "Belgium",
-    foundedBy: "Martin Margiela"
-  },
-  {
-    id: 8,
-    name: "Yves Saint Laurent",
-    category: "designer",
-    description: language === "en" 
-      ? "Parisian chic and modernity with revolutionary spirit" 
-      : "პარიზული შიკი და თანამედროვეობა რევოლუციური სულისკვეთებით",
-    heritage: "1961",
-    image: "/api/placeholder/300/200",
-    logo: "/api/placeholder/150/80",
-    bestsellers: 16,
-    newArrivals: 4,
-    country: "France",
-    foundedBy: "Yves Saint Laurent"
-  },
-  {
-    id: 9,
-    name: "Armani",
-    category: "popular",
-    description: language === "en" 
-      ? "Sophisticated Italian elegance with modern sensibility" 
-      : "სოფისტიკური იტალიური ელეგანტურობა თანამედროვე მგრძნობელობით",
-    heritage: "1975",
-    image: "/api/placeholder/300/200",
-    logo: "/api/placeholder/150/80",
-    bestsellers: 19,
-    newArrivals: 5,
-    country: "Italy",
-    foundedBy: "Giorgio Armani"
-  },
-  {
-    id: 10,
-    name: "Hermès",
-    category: "luxury",
-    description: language === "en" 
-      ? "French luxury craftsmanship and timeless sophistication" 
-      : "ფრანგული ლუქსუსური ხელოსნობა და უდროო სოფისტიკურობა",
-    heritage: "1837",
-    image: "/api/placeholder/300/200",
-    logo: "/api/placeholder/150/80",
-    bestsellers: 14,
-    newArrivals: 2,
-    country: "France",
-    foundedBy: "Thierry Hermès"
-  },
-  {
-    id: 11,
-    name: "Byredo",
-    category: "niche",
-    description: language === "en" 
-      ? "Modern Swedish minimalism meets luxury fragrance artistry" 
-      : "თანამედროვე შვედური მინიმალიზმი ლუქსუსურ სუნამოების ხელოვნებასთან",
-    heritage: "2006",
-    image: "/api/placeholder/300/200",
-    logo: "/api/placeholder/150/80",
-    bestsellers: 11,
-    newArrivals: 4,
-    country: "Sweden",
-    foundedBy: "Ben Gorham"
-  },
-  {
-    id: 12,
     name: "Dolce & Gabbana",
     category: "designer",
     description: language === "en" 
-      ? "Passionate Italian romance and Mediterranean luxury" 
-      : "ვნებიანი იტალიური რომანტიკა და ხმელთაშუაზღვისპირული ლუქსი",
+      ? "Passionate Italian romance with Mediterranean warmth, embodying the essence of Italian luxury and craftsmanship" 
+      : "ვნებიანი იტალიური რომანტიკა ხმელთაშუაზღვისპირული სითბოთი, რომელიც განასახიერებს იტალიური ლუქსისა და ხელოსნობის არსს",
     heritage: "1985",
     image: "/api/placeholder/300/200",
     logo: "/api/placeholder/150/80",
-    bestsellers: 17,
-    newArrivals: 6,
+    bestsellers: 19,
+    newArrivals: 7,
     country: "Italy",
     foundedBy: "Domenico Dolce & Stefano Gabbana"
+  },
+  {
+    id: 6,
+    name: "Versace Eros",
+    category: "designer",
+    description: language === "en" 
+      ? "A bold and seductive fragrance inspired by Greek mythology, combining fresh mint, Italian lemon and green apple" 
+      : "თამამი და მაცდუნებელი სურნელი, შთაგონებული ბერძნული მითოლოგიით, აერთიანებს ახალ პიტნას, იტალიურ ლიმონსა და მწვანე ვაშლს",
+    heritage: "2012",
+    image: "/api/placeholder/300/200",
+    logo: "/api/placeholder/150/80",
+    bestsellers: 26,
+    newArrivals: 5,
+    country: "Italy",
+    foundedBy: "Aurelien Guichard"
   }
 ];
 
