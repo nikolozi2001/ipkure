@@ -36,26 +36,22 @@ export default function BrandImage({ brand, className = "" }) {
       setIsFavorited(true);
     }
   };
-  // Generate a consistent image based on brand name for placeholder
-  const getPlaceholderImage = (name) => {
-    const images = [
-      chance,
-      chanelChance,
-      cocoChanel,
-      daisy,
-      dolceGabbana,
-      versaceEros,
-    ];
+  // Map brand names to their corresponding images
+  const getBrandImage = (name) => {
+    const imageMap = {
+      "Chance": chance,
+      "Chanel Chance": chanelChance,
+      "Coco Chanel": cocoChanel,
+      "Daisy": daisy,
+      "Dolce & Gabbana": dolceGabbana,
+      "Versace Eros": versaceEros,
+    };
 
-    const hash = name.split("").reduce((a, b) => {
-      a = (a << 5) - a + b.charCodeAt(0);
-      return a & a;
-    }, 0);
-
-    return images[Math.abs(hash) % images.length];
+    // Return the specific image for this brand, or fallback to first image
+    return imageMap[name] || chance;
   };
 
-  const placeholderImage = getPlaceholderImage(brand.name);
+  const placeholderImage = getBrandImage(brand.name);
 
   return (
     <div className={`w-full ${className}`}>
