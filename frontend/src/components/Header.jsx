@@ -1,6 +1,6 @@
 // src/components/Header.jsx
 import { FaSearch, FaHeart, FaUser, FaShoppingCart, FaBars, FaTimes } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useLanguage } from "../hooks/useLanguage";
 import Logo from "../assets/images/svg/Ipkure";
@@ -8,9 +8,20 @@ import Logo from "../assets/images/svg/Ipkure";
 export default function Header() {
   const { language, switchLanguage } = useLanguage();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   // Helper function to create language-aware links
   const createLink = (path) => `/${language}${path}`;
+
+  // Check if current route is active
+  const isActiveRoute = (path) => {
+    const fullPath = createLink(path);
+    // Handle home route specifically
+    if (path === "/") {
+      return location.pathname === `/${language}` || location.pathname === `/${language}/`;
+    }
+    return location.pathname === fullPath || location.pathname.startsWith(fullPath + "/");
+  };
 
   // Toggle mobile menu
   const toggleMobileMenu = () => {
@@ -57,19 +68,59 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center space-x-6 text-sm font-medium text-gray-700">
-          <Link to={createLink("/")} className="text-black font-semibold">
+          <Link 
+            to={createLink("/")} 
+            className={`transition-colors hover:text-black ${
+              isActiveRoute("/") ? "text-black !font-bold" : "text-gray-700"
+            }`}
+          >
             {nav.home}
           </Link>
           <span className="h-4 border-r border-gray-300"></span>
-          <Link to={createLink("/brand")}>{nav.brand}</Link>
+          <Link 
+            to={createLink("/brand")} 
+            className={`transition-colors hover:text-black ${
+              isActiveRoute("/brand") ? "text-black !font-bold" : "text-gray-700"
+            }`}
+          >
+            {nav.brand}
+          </Link>
           <span className="h-4 border-r border-gray-300"></span>
-          <Link to={createLink("/men")}>{nav.men}</Link>
+          <Link 
+            to={createLink("/men")} 
+            className={`transition-colors hover:text-black ${
+              isActiveRoute("/men") ? "text-black !font-bold" : "text-gray-700"
+            }`}
+          >
+            {nav.men}
+          </Link>
           <span className="h-4 border-r border-gray-300"></span>
-          <Link to={createLink("/women")}>{nav.women}</Link>
+          <Link 
+            to={createLink("/women")} 
+            className={`transition-colors hover:text-black ${
+              isActiveRoute("/women") ? "text-black !font-bold" : "text-gray-700"
+            }`}
+          >
+            {nav.women}
+          </Link>
           <span className="h-4 border-r border-gray-300"></span>
-          <Link to={createLink("/gift_sets")}>{nav.giftSets}</Link>
+          <Link 
+            to={createLink("/gift_sets")} 
+            className={`transition-colors hover:text-black ${
+              isActiveRoute("/gift_sets") ? "text-black !font-bold" : "text-gray-700"
+            }`}
+          >
+            {nav.giftSets}
+          </Link>
           <span className="h-4 border-r border-gray-300"></span>
-          <Link to={createLink("/contacts")}>{nav.contact}</Link>
+          <Link 
+            to={createLink("/contacts")} 
+            className={`transition-colors hover:text-black ${
+              isActiveRoute("/contacts") ? "text-black !font-bold" : "text-gray-700"
+            }`}
+          >
+            {nav.contact}
+          </Link>
         </nav>
 
         {/* Right side: Language switcher and Icons */}
@@ -130,42 +181,66 @@ export default function Header() {
             <nav className="space-y-4 mb-6">
               <Link 
                 to={createLink("/")} 
-                className="block text-base font-semibold text-black py-2 border-b border-gray-100"
+                className={`block text-base py-2 border-b border-gray-100 transition-colors ${
+                  isActiveRoute("/") 
+                    ? "!font-bold text-black" 
+                    : "text-gray-700 hover:text-black"
+                }`}
                 onClick={closeMobileMenu}
               >
                 {nav.home}
               </Link>
               <Link 
                 to={createLink("/brand")} 
-                className="block text-base text-gray-700 py-2 border-b border-gray-100 hover:text-black transition-colors"
+                className={`block text-base py-2 border-b border-gray-100 transition-colors ${
+                  isActiveRoute("/brand") 
+                    ? "!font-bold text-black" 
+                    : "text-gray-700 hover:text-black"
+                }`}
                 onClick={closeMobileMenu}
               >
                 {nav.brand}
               </Link>
               <Link 
                 to={createLink("/men")} 
-                className="block text-base text-gray-700 py-2 border-b border-gray-100 hover:text-black transition-colors"
+                className={`block text-base py-2 border-b border-gray-100 transition-colors ${
+                  isActiveRoute("/men") 
+                    ? "!font-bold text-black" 
+                    : "text-gray-700 hover:text-black"
+                }`}
                 onClick={closeMobileMenu}
               >
                 {nav.men}
               </Link>
               <Link 
                 to={createLink("/women")} 
-                className="block text-base text-gray-700 py-2 border-b border-gray-100 hover:text-black transition-colors"
+                className={`block text-base py-2 border-b border-gray-100 transition-colors ${
+                  isActiveRoute("/women") 
+                    ? "!font-bold text-black" 
+                    : "text-gray-700 hover:text-black"
+                }`}
                 onClick={closeMobileMenu}
               >
                 {nav.women}
               </Link>
               <Link 
                 to={createLink("/gift_sets")} 
-                className="block text-base text-gray-700 py-2 border-b border-gray-100 hover:text-black transition-colors"
+                className={`block text-base py-2 border-b border-gray-100 transition-colors ${
+                  isActiveRoute("/gift_sets") 
+                    ? "!font-bold text-black" 
+                    : "text-gray-700 hover:text-black"
+                }`}
                 onClick={closeMobileMenu}
               >
                 {nav.giftSets}
               </Link>
               <Link 
                 to={createLink("/contacts")} 
-                className="block text-base text-gray-700 py-2 border-b border-gray-100 hover:text-black transition-colors"
+                className={`block text-base py-2 border-b border-gray-100 transition-colors ${
+                  isActiveRoute("/contacts") 
+                    ? "!font-bold text-black" 
+                    : "text-gray-700 hover:text-black"
+                }`}
                 onClick={closeMobileMenu}
               >
                 {nav.contact}
