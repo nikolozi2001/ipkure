@@ -5,7 +5,6 @@ import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import { useBrands } from "../hooks/useBrands";
 import BrandFilters from "../components/Brands/BrandFilters";
 import BrandsGrid from "../components/Brands/BrandsGrid";
-import BrandModal from "../components/Brands/BrandModal";
 
 import bgChanel from "../assets/images/brand/bg-chanel.webp";
 
@@ -13,8 +12,6 @@ export default function BrandPage() {
   const { language } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedBrand, setSelectedBrand] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [showOnlyFavorites, setShowOnlyFavorites] = useState(false);
   const [sortBy, setSortBy] = useState("name-asc");
 
@@ -27,8 +24,8 @@ export default function BrandPage() {
   // Use brands hook
   const { loading, error, filterBrands, refreshBrands } = useBrands();
 
-  // Set dynamic title for brands page
-  useDocumentTitle("brands");
+  // Set dynamic title for brand page
+  useDocumentTitle("brand");
 
   // Get favorites from localStorage (matching BrandImage component)
   const getFavorites = () => {
@@ -243,16 +240,6 @@ export default function BrandPage() {
     );
   }
 
-  const handleBrandClick = (brand) => {
-    setSelectedBrand(brand);
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setSelectedBrand(null);
-  };
-
   return (
     <div className="w-full" ref={scrollRef}>
       {/* Pull-to-refresh indicator */}
@@ -455,18 +442,11 @@ export default function BrandPage() {
           ) : (
             <BrandsGrid
               brands={filteredBrands}
-              onBrandClick={handleBrandClick}
             />
           )}
         </div>
       </section>
 
-      {/* Brand Modal */}
-      <BrandModal
-        brand={selectedBrand}
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-      />
     </div>
   );
 }
