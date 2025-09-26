@@ -38,10 +38,10 @@ export default function BrandsGrid({ brands, onBrandClick }) {
           }}
           onClick={() => onBrandClick && onBrandClick(brand)}
         >
-          <div className="flex-1 flex items-center justify-center">
+          <div className="flex-1">
             <BrandImage 
               brand={brand}
-              className="w-full h-auto object-contain"
+              className="w-full h-full"
             />
           </div>
           
