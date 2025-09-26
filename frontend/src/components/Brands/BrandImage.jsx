@@ -1,5 +1,4 @@
 import React from "react";
-import perfume1 from "../../assets/images/perfume1.webp";
 import perfume2 from "../../assets/images/perfume2.jpg";
 import perfume3 from "../../assets/images/perfume3.avif";
 import men1 from "../../assets/images/men1.jpg";
@@ -15,16 +14,7 @@ export default function BrandImage({
 }) {
   // Generate a consistent image based on brand name for placeholder
   const getPlaceholderImage = (name) => {
-    const images = [
-      perfume1,
-      perfume2,
-      perfume3,
-      men1,
-      men2,
-      men3,
-      women1,
-      women2,
-    ];
+    const images = [women2, perfume3, men1, men2, men3, women1, perfume2];
 
     const hash = name.split("").reduce((a, b) => {
       a = (a << 5) - a + b.charCodeAt(0);
@@ -55,10 +45,6 @@ export default function BrandImage({
             </div>
           </div>
         </div>
-
-        {/* Decorative elements */}
-        <div className="absolute top-4 right-4 w-8 h-8 border-2 border-white/30 rounded-full"></div>
-        <div className="absolute bottom-4 left-4 w-6 h-6 border-2 border-white/30 rounded-full"></div>
       </div>
     </div>
   );
