@@ -60,7 +60,7 @@ export default function BrandImage({ brand, className = "" }) {
   return (
     <div className={`w-full ${className}`}>
       {/* Image container */}
-      <div className="w-full relative overflow-hidden aspect-square hover:scale-105 transition-transform duration-300 active:scale-100">
+      <div className="w-full relative overflow-hidden aspect-square">
         {/* Perfume image filling the container */}
         <img
           src={placeholderImage}

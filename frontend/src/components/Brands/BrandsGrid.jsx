@@ -36,22 +36,14 @@ export default function BrandsGrid({ brands, onBrandClick }) {
               <BrandImage brand={brand} className="w-full h-full" />
 
               {/* Overlay - Mobile friendly */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300">
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300 z-0 pointer-events-none">
                 <button
-                  className="px-3 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium uppercase tracking-wide transition-all duration-200 hover:scale-105 active:scale-95 touch-manipulation"
+                  className="px-3 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium uppercase tracking-wide bg-white/20 backdrop-blur-md border-2 border-white text-white transition-all duration-200 touch-manipulation hover:bg-white/30 pointer-events-auto"
                   style={{
-                    backgroundColor: "var(--golden-brown)",
-                    color: "white",
                     fontFamily:
                       language === "ge"
                         ? "var(--font-primary-ge)"
                         : "var(--font-primary-en)",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.backgroundColor = "var(--accent-color)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.backgroundColor = "var(--golden-brown)";
                   }}
                 >
                   {t.detail}
