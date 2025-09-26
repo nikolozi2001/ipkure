@@ -19,7 +19,6 @@ export default function BrandPage() {
   const [sortBy, setSortBy] = useState("name-asc");
 
   // Mobile-specific state
-  const [isFiltersOpen, setIsFiltersOpen] = useState(false);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
@@ -126,18 +125,7 @@ export default function BrandPage() {
     }
   }, [touchStart, touchEnd, isRefreshing, handleRefresh]);
 
-  // Mobile filter handlers
-  const openFilters = () => setIsFiltersOpen(true);
-  const closeFilters = () => setIsFiltersOpen(false);
 
-  // Clear all filters
-  const clearAllFilters = () => {
-    setSelectedCategory("all");
-    setSearchTerm("");
-    setSortBy("name-asc");
-    setShowOnlyFavorites(false);
-    closeFilters();
-  };
 
   // Use effect for mobile detection and touch event setup
   useEffect(() => {
@@ -273,174 +261,6 @@ export default function BrandPage() {
           <div className="flex items-center justify-center space-x-2">
             <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
             <span>{language === "en" ? "Refreshing..." : "განახლება..."}</span>
-          </div>
-        </div>
-      )}
-
-      {/* Mobile Filter Button - Fixed position */}
-      <div className="md:hidden fixed bottom-6 right-6 z-40">
-        <button
-          onClick={openFilters}
-          className="bg-golden-brown text-white p-4 rounded-full shadow-lg hover:bg-golden-brown/90 transition-colors"
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"
-            />
-          </svg>
-        </button>
-      </div>
-
-      {/* Mobile Filter Drawer Overlay */}
-      {isFiltersOpen && (
-        <div
-          className="md:hidden fixed inset-0 bg-black bg-opacity-50 z-50"
-          onClick={closeFilters}
-        >
-          <div
-            className="fixed bottom-0 left-0 right-0 bg-white rounded-t-2xl max-h-[80vh] overflow-y-auto"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Drawer Header */}
-            <div className="flex items-center justify-between p-4 border-b border-gray-200">
-              <h3 className="text-lg font-semibold text-gray-900">
-                {language === "en" ? "Filters & Sort" : "ფილტრები და დალაგება"}
-              </h3>
-              <button
-                onClick={closeFilters}
-                className="p-2 text-gray-400 hover:text-gray-600"
-              >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
-            </div>
-
-            {/* Mobile Filters Content */}
-            <div className="p-4 space-y-6">
-              {/* Categories */}
-              <div>
-                <h4 className="text-sm font-medium text-gray-900 mb-3">
-                  {language === "en" ? "Categories" : "კატეგორიები"}
-                </h4>
-                <div className="space-y-3">
-                  {["all", "new", "exclusive", "limited", "popular"].map(
-                    (category) => (
-                      <label
-                        key={category}
-                        className="flex items-center space-x-3"
-                      >
-                        <input
-                          type="radio"
-                          name="category"
-                          checked={selectedCategory === category}
-                          onChange={() => setSelectedCategory(category)}
-                          className="text-golden-brown focus:ring-golden-brown"
-                        />
-                        <span className="text-sm text-gray-700 capitalize">
-                          {category}
-                        </span>
-                      </label>
-                    )
-                  )}
-                </div>
-              </div>
-
-              {/* Sorting */}
-              <div>
-                <h4 className="text-sm font-medium text-gray-900 mb-3">
-                  {language === "en" ? "Sort By" : "დალაგება"}
-                </h4>
-                <select
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-golden-brown focus:border-transparent"
-                >
-                  <option value="name-asc">
-                    {language === "en" ? "Name (A-Z)" : "სახელი (ა-ჰ)"}
-                  </option>
-                  <option value="name-desc">
-                    {language === "en" ? "Name (Z-A)" : "სახელი (ჰ-ა)"}
-                  </option>
-                  <option value="category-asc">
-                    {language === "en" ? "Category" : "კატეგორია"}
-                  </option>
-                  <option value="heritage-oldest">
-                    {language === "en"
-                      ? "Heritage (Oldest First)"
-                      : "მემკვიდრეობა (ძველი პირველი)"}
-                  </option>
-                  <option value="heritage-newest">
-                    {language === "en"
-                      ? "Heritage (Newest First)"
-                      : "მემკვიდრეობა (ახალი პირველი)"}
-                  </option>
-                  <option value="bestsellers-desc">
-                    {language === "en" ? "Most Popular" : "ყველაზე პოპულარული"}
-                  </option>
-                </select>
-              </div>
-
-              {/* Favorites Toggle */}
-              <div>
-                <label className="flex items-center justify-between">
-                  <span className="text-sm font-medium text-gray-900">
-                    {language === "en"
-                      ? "Show Favorites Only"
-                      : "მხოლოდ რჩეულები"}
-                  </span>
-                  <button
-                    onClick={() => setShowOnlyFavorites(!showOnlyFavorites)}
-                    className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                      showOnlyFavorites ? "bg-golden-brown" : "bg-gray-200"
-                    }`}
-                  >
-                    <span
-                      className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                        showOnlyFavorites ? "translate-x-6" : "translate-x-1"
-                      }`}
-                    />
-                  </button>
-                </label>
-              </div>
-            </div>
-
-            {/* Drawer Footer */}
-            <div className="p-4 border-t border-gray-200 space-y-3">
-              <button
-                onClick={clearAllFilters}
-                className="w-full py-2 px-4 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
-              >
-                {language === "en"
-                  ? "Clear All Filters"
-                  : "ყველა ფილტრის გასუფთავება"}
-              </button>
-              <button
-                onClick={closeFilters}
-                className="w-full py-2 px-4 bg-golden-brown text-white rounded-lg hover:bg-golden-brown/90 transition-colors"
-              >
-                {language === "en" ? "Apply Filters" : "ფილტრების გამოყენება"} (
-                {filteredBrands.length})
-              </button>
-            </div>
           </div>
         </div>
       )}
@@ -599,25 +419,6 @@ export default function BrandPage() {
                 </div>
               )}
             </div>
-            <button
-              onClick={openFilters}
-              className="text-golden-brown font-medium text-sm flex items-center space-x-1"
-            >
-              <span>{language === "en" ? "Filter" : "ფილტრი"}</span>
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"
-                />
-              </svg>
-            </button>
           </div>
         </div>
       </div>
@@ -650,12 +451,6 @@ export default function BrandPage() {
                   ? "Try adjusting your search or filter criteria."
                   : "სცადეთ ძიების ან ფილტრის კრიტერიუმების შეცვლა."}
               </p>
-              <button
-                onClick={openFilters}
-                className="mt-4 px-6 py-2 bg-golden-brown text-white rounded-lg hover:bg-golden-brown/90 transition-colors md:hidden"
-              >
-                {language === "en" ? "Adjust Filters" : "ფილტრების შეცვლა"}
-              </button>
             </div>
           ) : (
             <BrandsGrid
