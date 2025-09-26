@@ -1,159 +1,88 @@
+// frontend/src/components/Brands/BrandFilters.jsx
 import React from "react";
+import { X, Filter } from "lucide-react"; // install lucide-react if not installed: npm i lucide-react
 import { useLanguage } from "../../hooks/useLanguage";
 
-export default function BrandFilters({ 
-  selectedCategory, 
-  onCategoryChange, 
-  searchTerm, 
-  onSearchChange,
-  resultCount 
+export default function BrandFilters({
+  selectedCategory,
+  onCategoryChange,
+  onClearFilters,
 }) {
   const { language } = useLanguage();
 
   const filtersTranslations = {
     en: {
-      searchPlaceholder: "Search brands...",
-      categories: {
-        all: "All Brands",
-        luxury: "Luxury",
-        designer: "Designer", 
-        niche: "Niche",
-        popular: "Popular"
-      },
-      sortBy: "Sort by:",
-      sortOptions: {
-        name: "Name A-Z",
-        nameDesc: "Name Z-A", 
-        heritage: "Oldest First",
-        popular: "Most Popular"
-      },
-      results: "brands found",
-      clearFilters: "Clear Filters"
+      all: "All",
+      new: "New",
+      exclusive: "Exclusive",
+      limited: "Limited Edition",
+      popular: "Popular",
+      filters: "Filters",
     },
     ge: {
-      searchPlaceholder: "ძებნა ბრენდებში...",
-      categories: {
-        all: "ყველა ბრენდი",
-        luxury: "ლუქსი",
-        designer: "დიზაინერული",
-        niche: "ნიშური", 
-        popular: "პოპულარული"
-      },
-      sortBy: "დალაგება:",
-      sortOptions: {
-        name: "სახელით ა-ჰ",
-        nameDesc: "სახელით ჰ-ა",
-        heritage: "ძველი პირველი",
-        popular: "ყველაზე პოპულარული"
-      },
-      results: "ბრენდი ნაპოვნია",
-      clearFilters: "ფილტრების გასუფთავება"
-    }
+      all: "ყველა",
+      new: "ახალი",
+      exclusive: "ექსკლუზიური",
+      limited: "შეზღუდული გამოშვება",
+      popular: "პოპულარული",
+      filters: "ფილტრები",
+    },
   };
 
   const t = filtersTranslations[language];
 
-  const hasActiveFilters = selectedCategory !== "all" || searchTerm !== "";
+  const categories = [
+    { key: "all", label: t.all },
+    { key: "new", label: t.new },
+    { key: "exclusive", label: t.exclusive },
+    { key: "limited", label: t.limited },
+    { key: "popular", label: t.popular },
+  ];
 
   return (
-    <section className="w-full py-8 bg-gray-50 border-b border-gray-200">
+    <section className="w-full border-b border-gray-200 bg-gray-50">
       <div className="container mx-auto px-6">
-        {/* Main Filter Row */}
-        <div className="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between">
-          {/* Search */}
-          <div className="relative w-full lg:w-96">
-            <input
-              type="text"
-              placeholder={t.searchPlaceholder}
-              value={searchTerm}
-              onChange={(e) => onSearchChange(e.target.value)}
-              className="w-full px-4 py-3 pl-12 pr-10 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent bg-white shadow-sm"
-            />
-            <svg className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-            {searchTerm && (
-              <button
-                onClick={() => onSearchChange("")}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 hover:text-gray-600"
-              >
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            )}
+        <div className="flex items-center justify-between py-3 text-sm">
+          {/* Left: Filters label */}
+          <div className="flex items-center gap-2 text-gray-800 font-medium">
+            <Filter className="w-4 h-4" />
+            {t.filters}
           </div>
 
-          {/* Results Count & Clear Filters */}
-          <div className="flex items-center gap-4 text-sm text-gray-600">
-            <span className="font-medium">
-              {resultCount} {t.results}
-            </span>
-            {hasActiveFilters && (
-              <button
-                onClick={() => {
-                  onCategoryChange("all");
-                  onSearchChange("");
-                }}
-                className="text-black hover:underline font-medium"
-              >
-                {t.clearFilters}
-              </button>
-            )}
-          </div>
-        </div>
-
-        {/* Category Filters */}
-        <div className="mt-6">
-          <div className="flex flex-wrap gap-3">
-            {Object.entries(t.categories).map(([key, label]) => (
-              <button
+          {/* Middle: checkboxes */}
+          <div className="flex items-center gap-6">
+            {categories.map(({ key, label }) => (
+              <label
                 key={key}
-                onClick={() => onCategoryChange(key)}
-                className={`px-6 py-2 rounded-full font-medium transition-all duration-200 ${
-                  selectedCategory === key
-                    ? "bg-black text-white shadow-lg"
-                    : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 hover:border-gray-300"
-                }`}
+                className="flex items-center gap-2 cursor-pointer select-none"
               >
-                {label}
-              </button>
+                <input
+                  type="checkbox"
+                  checked={selectedCategory === key}
+                  onChange={() => onCategoryChange(key)}
+                  className="w-4 h-4 border-gray-300 text-black focus:ring-black"
+                />
+                <span
+                  className={`${
+                    selectedCategory === key
+                      ? "text-black font-semibold"
+                      : "text-gray-600"
+                  }`}
+                >
+                  {label}
+                </span>
+              </label>
             ))}
           </div>
-        </div>
 
-        {/* Active Filters Display */}
-        {hasActiveFilters && (
-          <div className="mt-4 flex flex-wrap gap-2">
-            <span className="text-sm text-gray-500 mr-2">Active filters:</span>
-            {selectedCategory !== "all" && (
-              <span className="inline-flex items-center gap-1 bg-black text-white text-xs px-3 py-1 rounded-full">
-                {t.categories[selectedCategory]}
-                <button
-                  onClick={() => onCategoryChange("all")}
-                  className="ml-1 hover:bg-white/20 rounded-full p-0.5"
-                >
-                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </span>
-            )}
-            {searchTerm && (
-              <span className="inline-flex items-center gap-1 bg-gray-600 text-white text-xs px-3 py-1 rounded-full">
-                "{searchTerm}"
-                <button
-                  onClick={() => onSearchChange("")}
-                  className="ml-1 hover:bg-white/20 rounded-full p-0.5"
-                >
-                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </span>
-            )}
-          </div>
-        )}
+          {/* Right: Close */}
+          <button
+            onClick={onClearFilters}
+            className="text-gray-600 hover:text-black"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
       </div>
     </section>
   );

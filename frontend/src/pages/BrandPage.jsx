@@ -3,12 +3,11 @@ import React, { useState } from "react";
 import { useLanguage } from "../hooks/useLanguage";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import { useBrands } from "../hooks/useBrands";
-import FeaturedBrand from "../components/Brands/FeaturedBrand";
 import BrandFilters from "../components/Brands/BrandFilters";
 import BrandsGrid from "../components/Brands/BrandsGrid";
 import BrandModal from "../components/Brands/BrandModal";
 
-import bgChanel from "../assets/images/brand/bg-chanel.webp"; // ✅ background image
+import bgChanel from "../assets/images/brand/bg-chanel.webp";
 
 export default function BrandPage() {
   const { language } = useLanguage();
@@ -18,14 +17,13 @@ export default function BrandPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Use brands hook
-  const { loading, error, filterBrands, getFeaturedBrand } = useBrands();
+  const { loading, error, filterBrands } = useBrands();
 
   // Set dynamic title for brands page
   useDocumentTitle("brands");
 
   // Filter brands based on category and search
   const filteredBrands = filterBrands(searchTerm, selectedCategory);
-  const featuredBrand = getFeaturedBrand();
 
   const brandIntroText = {
     en: {
@@ -122,9 +120,6 @@ export default function BrandPage() {
           </p>
         </div>
       </section>
-
-      {/* Featured Brand Section */}
-      <FeaturedBrand brand={featuredBrand} />
 
       {/* Filters and Search */}
       <BrandFilters
