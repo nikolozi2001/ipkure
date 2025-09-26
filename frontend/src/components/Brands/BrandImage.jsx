@@ -77,12 +77,12 @@ export default function BrandImage({ brand, className = "" }) {
           }
         >
           <svg
-            className={`w-4 h-4 sm:w-5 sm:h-5 transition-all duration-200 ${
+            className={`w-6 h-6 sm:w-7 sm:h-7 transition-all duration-200 ${
               isFavorited
-                ? "text-red-500 fill-red-500 scale-110"
-                : "text-black hover:text-red-500 hover:scale-105 active:scale-95"
+                ? "text-red-500 fill-red-500 scale-120 hover:scale-150 bg-white/70 backdrop-blur-md rounded-full p-1"
+                : "text-gray-500 scale-120 hover:text-red-500 hover:scale-150 active:scale-150 bg-white/70 backdrop-blur-md rounded-full p-1"
             }`}
-            fill={isFavorited ? "currentColor" : "none"}
+            fill="currentColor"
             stroke="currentColor"
             viewBox="0 0 24 24"
             strokeWidth={2}

@@ -29,12 +29,7 @@ export default function BrandsGrid({ brands, onBrandClick }) {
         {brands.slice(0, 6).map((brand) => (
           <div
             key={brand.id}
-            className="p-3 sm:p-4 md:p-6 text-center hover:shadow-xl transition-all duration-300 aspect-square flex flex-col relative group cursor-pointer touch-manipulation"
-            style={{
-              borderColor: "var(--golden-brown)",
-              borderWidth: "2px",
-              borderStyle: "solid",
-            }}
+            className="text-center hover:shadow-xl transition-all duration-300 aspect-square flex flex-col relative group cursor-pointer touch-manipulation"
             onClick={() => onBrandClick && onBrandClick(brand)}
           >
             <div className="flex-1">
