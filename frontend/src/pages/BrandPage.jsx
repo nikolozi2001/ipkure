@@ -23,10 +23,10 @@ export default function BrandPage() {
   // Set dynamic title for brands page
   useDocumentTitle("brands");
 
-  // Get favorites from localStorage
+  // Get favorites from localStorage (matching BrandImage component)
   const getFavorites = () => {
     try {
-      const favorites = localStorage.getItem('favorites');
+      const favorites = localStorage.getItem('favoriteBrands');
       return favorites ? JSON.parse(favorites) : [];
     } catch (error) {
       console.error('Error parsing favorites:', error);
@@ -39,7 +39,10 @@ export default function BrandPage() {
   
   // Further filter by favorites if toggled
   const filteredBrands = showOnlyFavorites
-    ? allFilteredBrands.filter(brand => getFavorites().includes(brand.id))
+    ? allFilteredBrands.filter(brand => {
+        const favoriteIds = getFavorites().map(fav => fav.id);
+        return favoriteIds.includes(brand.id);
+      })
     : allFilteredBrands;
 
   const brandIntroText = {
