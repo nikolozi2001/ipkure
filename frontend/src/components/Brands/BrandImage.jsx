@@ -58,43 +58,56 @@ export default function BrandImage({ brand, className = "" }) {
   const placeholderImage = getPlaceholderImage(brand.name);
 
   return (
-    <div className={`w-full h-full relative overflow-hidden ${className}`}>
-      {/* Perfume image filling the entire container */}
-      <img
-        src={placeholderImage}
-        alt={brand.name}
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 hover:scale-105 active:scale-100"
-        loading="lazy"
-      />
+    <div className={`w-full ${className}`}>
+      {/* Image container */}
+      <div className="w-full relative overflow-hidden aspect-square hover:scale-105 transition-transform duration-300 active:scale-100">
+        {/* Perfume image filling the container */}
+        <img
+          src={placeholderImage}
+          alt={brand.name}
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="lazy"
+        />
 
-      {/* Heart icon in top right corner - Only show in grid, not in modal */}
-      {!className.includes("modal-context") && (
-        <button
-          className="absolute top-1 right-1 sm:top-2 sm:right-2 z-10 p-1 sm:p-1.5  transition-all duration-200 touch-manipulation"
-          onClick={handleFavoriteClick}
-          aria-label={
-            isFavorited ? "Remove from favorites" : "Add to favorites"
-          }
-        >
-          <svg
-            className={`w-6 h-6 sm:w-7 sm:h-7 transition-all duration-200 ${
-              isFavorited
-                ? "text-red-500 fill-red-500 scale-120 hover:scale-150 bg-white/70 backdrop-blur-md rounded-full p-1"
-                : "text-gray-500 scale-120 hover:text-red-500 hover:scale-150 active:scale-150 bg-white/70 backdrop-blur-md rounded-full p-1"
-            }`}
-            fill="currentColor"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
+        {/* Heart icon in top right corner - Only show in grid, not in modal */}
+        {!className.includes("modal-context") && (
+          <button
+            className="absolute top-1 right-1 sm:top-2 sm:right-2 z-10 p-1 sm:p-1.5  transition-all duration-200 touch-manipulation"
+            onClick={handleFavoriteClick}
+            aria-label={
+              isFavorited ? "Remove from favorites" : "Add to favorites"
+            }
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-            />
-          </svg>
-        </button>
-      )}
+            <svg
+              className={`w-6 h-6 sm:w-7 sm:h-7 transition-all duration-200 ${
+                isFavorited
+                  ? "text-red-500 fill-red-500 scale-120 hover:scale-150 bg-white/70 backdrop-blur-md rounded-full p-1"
+                  : "text-gray-500 scale-120 hover:text-red-500 hover:scale-150 active:scale-150 bg-white/70 backdrop-blur-md rounded-full p-1"
+              }`}
+              fill="currentColor"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+              />
+            </svg>
+          </button>
+        )}
+      </div>
+
+      {/* Brand information below the image */}
+      <div className="mt-2 p-2 text-center">
+        <h3 className="text-gray-900 font-semibold text-sm sm:text-base mb-1 truncate">
+          {brand.name}
+        </h3>
+        <p className="text-gray-600 text-xs sm:text-sm truncate">
+          by {brand.foundedBy}
+        </p>
+      </div>
     </div>
   );
 }
