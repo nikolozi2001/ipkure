@@ -16,6 +16,7 @@ export default function BrandPage() {
   const [selectedBrand, setSelectedBrand] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showOnlyFavorites, setShowOnlyFavorites] = useState(false);
+  const [sortBy, setSortBy] = useState("name-asc");
 
   // Use brands hook
   const { loading, error, filterBrands } = useBrands();
@@ -38,12 +39,37 @@ export default function BrandPage() {
   const allFilteredBrands = filterBrands(searchTerm, selectedCategory);
   
   // Further filter by favorites if toggled
-  const filteredBrands = showOnlyFavorites
+  const favoritesFilteredBrands = showOnlyFavorites
     ? allFilteredBrands.filter(brand => {
         const favoriteIds = getFavorites().map(fav => fav.id);
         return favoriteIds.includes(brand.id);
       })
     : allFilteredBrands;
+
+  // Sort brands based on selected option
+  const sortBrands = (brands, sortOption) => {
+    const sortedBrands = [...brands];
+    
+    switch (sortOption) {
+      case "name-asc":
+        return sortedBrands.sort((a, b) => a.name.localeCompare(b.name));
+      case "name-desc":
+        return sortedBrands.sort((a, b) => b.name.localeCompare(a.name));
+      case "category-asc":
+        return sortedBrands.sort((a, b) => a.category.localeCompare(b.category));
+      case "heritage-oldest":
+        return sortedBrands.sort((a, b) => parseInt(a.heritage) - parseInt(b.heritage));
+      case "heritage-newest":
+        return sortedBrands.sort((a, b) => parseInt(b.heritage) - parseInt(a.heritage));
+      case "bestsellers-desc":
+        return sortedBrands.sort((a, b) => (b.bestsellers || 0) - (a.bestsellers || 0));
+      default:
+        return sortedBrands;
+    }
+  };
+
+  // Apply sorting to filtered brands
+  const filteredBrands = sortBrands(favoritesFilteredBrands, sortBy);
 
   const brandIntroText = {
     en: {
@@ -256,9 +282,14 @@ export default function BrandPage() {
       <BrandFilters
         selectedCategory={selectedCategory}
         onCategoryChange={setSelectedCategory}
-        searchTerm={searchTerm}
-        onSearchChange={setSearchTerm}
+        onClearFilters={() => {
+          setSelectedCategory("all");
+          setSearchTerm("");
+          setSortBy("name-asc");
+        }}
         resultCount={filteredBrands.length}
+        sortBy={sortBy}
+        onSortChange={setSortBy}
       />
 
       {/* Brands Grid */}
