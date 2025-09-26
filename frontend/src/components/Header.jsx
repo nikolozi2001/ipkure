@@ -45,7 +45,7 @@ export default function Header() {
   const nav = navTranslations[language];
 
   return (
-    <header className="w-full bg-white shadow-sm relative">
+    <header className="w-full bg-white shadow-sm relative z-50">
       <div className="container mx-auto flex items-center justify-between py-3 px-4 lg:py-4 lg:px-6">
         {/* Logo */}
         <Link

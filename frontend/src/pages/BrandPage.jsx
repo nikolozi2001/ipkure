@@ -17,7 +17,7 @@ export default function BrandPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showOnlyFavorites, setShowOnlyFavorites] = useState(false);
   const [sortBy, setSortBy] = useState("name-asc");
-  
+
   // Mobile-specific state
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
   const [isRefreshing, setIsRefreshing] = useState(false);
@@ -34,21 +34,21 @@ export default function BrandPage() {
   // Get favorites from localStorage (matching BrandImage component)
   const getFavorites = () => {
     try {
-      const favorites = localStorage.getItem('favoriteBrands');
+      const favorites = localStorage.getItem("favoriteBrands");
       return favorites ? JSON.parse(favorites) : [];
     } catch (error) {
-      console.error('Error parsing favorites:', error);
+      console.error("Error parsing favorites:", error);
       return [];
     }
   };
 
   // Filter brands based on category and search
   const allFilteredBrands = filterBrands(searchTerm, selectedCategory);
-  
+
   // Further filter by favorites if toggled
   const favoritesFilteredBrands = showOnlyFavorites
-    ? allFilteredBrands.filter(brand => {
-        const favoriteIds = getFavorites().map(fav => fav.id);
+    ? allFilteredBrands.filter((brand) => {
+        const favoriteIds = getFavorites().map((fav) => fav.id);
         return favoriteIds.includes(brand.id);
       })
     : allFilteredBrands;
@@ -56,20 +56,28 @@ export default function BrandPage() {
   // Sort brands based on selected option
   const sortBrands = (brands, sortOption) => {
     const sortedBrands = [...brands];
-    
+
     switch (sortOption) {
       case "name-asc":
         return sortedBrands.sort((a, b) => a.name.localeCompare(b.name));
       case "name-desc":
         return sortedBrands.sort((a, b) => b.name.localeCompare(a.name));
       case "category-asc":
-        return sortedBrands.sort((a, b) => a.category.localeCompare(b.category));
+        return sortedBrands.sort((a, b) =>
+          a.category.localeCompare(b.category)
+        );
       case "heritage-oldest":
-        return sortedBrands.sort((a, b) => parseInt(a.heritage) - parseInt(b.heritage));
+        return sortedBrands.sort(
+          (a, b) => parseInt(a.heritage) - parseInt(b.heritage)
+        );
       case "heritage-newest":
-        return sortedBrands.sort((a, b) => parseInt(b.heritage) - parseInt(a.heritage));
+        return sortedBrands.sort(
+          (a, b) => parseInt(b.heritage) - parseInt(a.heritage)
+        );
       case "bestsellers-desc":
-        return sortedBrands.sort((a, b) => (b.bestsellers || 0) - (a.bestsellers || 0));
+        return sortedBrands.sort(
+          (a, b) => (b.bestsellers || 0) - (a.bestsellers || 0)
+        );
       default:
         return sortedBrands;
     }
@@ -86,10 +94,10 @@ export default function BrandPage() {
       if (refreshBrands) {
         await refreshBrands();
       } else {
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await new Promise((resolve) => setTimeout(resolve, 1000));
       }
     } catch (error) {
-      console.error('Error refreshing brands:', error);
+      console.error("Error refreshing brands:", error);
     } finally {
       setIsRefreshing(false);
     }
@@ -107,11 +115,11 @@ export default function BrandPage() {
 
   const handleTouchEnd = useCallback(() => {
     if (!touchStart || !touchEnd) return;
-    
+
     const distance = touchStart - touchEnd;
     const isDownSwipe = distance < -100;
     const scrollTop = scrollRef.current?.scrollTop || 0;
-    
+
     // Trigger refresh if user pulls down at the top of the page
     if (isDownSwipe && scrollTop === 0 && !isRefreshing) {
       handleRefresh();
@@ -135,14 +143,18 @@ export default function BrandPage() {
   useEffect(() => {
     const element = scrollRef.current;
     if (element) {
-      element.addEventListener('touchstart', handleTouchStart, { passive: false });
-      element.addEventListener('touchmove', handleTouchMove, { passive: false });
-      element.addEventListener('touchend', handleTouchEnd);
-      
+      element.addEventListener("touchstart", handleTouchStart, {
+        passive: false,
+      });
+      element.addEventListener("touchmove", handleTouchMove, {
+        passive: false,
+      });
+      element.addEventListener("touchend", handleTouchEnd);
+
       return () => {
-        element.removeEventListener('touchstart', handleTouchStart);
-        element.removeEventListener('touchmove', handleTouchMove);
-        element.removeEventListener('touchend', handleTouchEnd);
+        element.removeEventListener("touchstart", handleTouchStart);
+        element.removeEventListener("touchmove", handleTouchMove);
+        element.removeEventListener("touchend", handleTouchEnd);
       };
     }
   }, [touchStart, touchEnd, isRefreshing, handleTouchEnd]);
@@ -257,10 +269,10 @@ export default function BrandPage() {
     <div className="w-full" ref={scrollRef}>
       {/* Pull-to-refresh indicator */}
       {isRefreshing && (
-        <div className="fixed top-0 left-0 right-0 z-50 bg-golden-brown text-white py-2 px-4 text-center text-sm">
+        <div className="fixed top-16 left-0 right-0 z-40 bg-golden-brown text-white py-2 px-4 text-center text-sm">
           <div className="flex items-center justify-center space-x-2">
             <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-            <span>{language === 'en' ? 'Refreshing...' : 'განახლება...'}</span>
+            <span>{language === "en" ? "Refreshing..." : "განახლება..."}</span>
           </div>
         </div>
       )}
@@ -271,73 +283,119 @@ export default function BrandPage() {
           onClick={openFilters}
           className="bg-golden-brown text-white p-4 rounded-full shadow-lg hover:bg-golden-brown/90 transition-colors"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"
+            />
           </svg>
         </button>
       </div>
 
       {/* Mobile Filter Drawer Overlay */}
       {isFiltersOpen && (
-        <div className="md:hidden fixed inset-0 bg-black bg-opacity-50 z-50" onClick={closeFilters}>
-          <div 
+        <div
+          className="md:hidden fixed inset-0 bg-black bg-opacity-50 z-50"
+          onClick={closeFilters}
+        >
+          <div
             className="fixed bottom-0 left-0 right-0 bg-white rounded-t-2xl max-h-[80vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Drawer Header */}
             <div className="flex items-center justify-between p-4 border-b border-gray-200">
               <h3 className="text-lg font-semibold text-gray-900">
-                {language === 'en' ? 'Filters & Sort' : 'ფილტრები და დალაგება'}
+                {language === "en" ? "Filters & Sort" : "ფილტრები და დალაგება"}
               </h3>
-              <button 
+              <button
                 onClick={closeFilters}
                 className="p-2 text-gray-400 hover:text-gray-600"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
               </button>
             </div>
-            
+
             {/* Mobile Filters Content */}
             <div className="p-4 space-y-6">
               {/* Categories */}
               <div>
                 <h4 className="text-sm font-medium text-gray-900 mb-3">
-                  {language === 'en' ? 'Categories' : 'კატეგორიები'}
+                  {language === "en" ? "Categories" : "კატეგორიები"}
                 </h4>
                 <div className="space-y-3">
-                  {['all', 'new', 'exclusive', 'limited', 'popular'].map((category) => (
-                    <label key={category} className="flex items-center space-x-3">
-                      <input
-                        type="radio"
-                        name="category"
-                        checked={selectedCategory === category}
-                        onChange={() => setSelectedCategory(category)}
-                        className="text-golden-brown focus:ring-golden-brown"
-                      />
-                      <span className="text-sm text-gray-700 capitalize">{category}</span>
-                    </label>
-                  ))}
+                  {["all", "new", "exclusive", "limited", "popular"].map(
+                    (category) => (
+                      <label
+                        key={category}
+                        className="flex items-center space-x-3"
+                      >
+                        <input
+                          type="radio"
+                          name="category"
+                          checked={selectedCategory === category}
+                          onChange={() => setSelectedCategory(category)}
+                          className="text-golden-brown focus:ring-golden-brown"
+                        />
+                        <span className="text-sm text-gray-700 capitalize">
+                          {category}
+                        </span>
+                      </label>
+                    )
+                  )}
                 </div>
               </div>
 
               {/* Sorting */}
               <div>
                 <h4 className="text-sm font-medium text-gray-900 mb-3">
-                  {language === 'en' ? 'Sort By' : 'დალაგება'}
+                  {language === "en" ? "Sort By" : "დალაგება"}
                 </h4>
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-golden-brown focus:border-transparent"
                 >
-                  <option value="name-asc">{language === 'en' ? 'Name (A-Z)' : 'სახელი (ა-ჰ)'}</option>
-                  <option value="name-desc">{language === 'en' ? 'Name (Z-A)' : 'სახელი (ჰ-ა)'}</option>
-                  <option value="category-asc">{language === 'en' ? 'Category' : 'კატეგორია'}</option>
-                  <option value="heritage-oldest">{language === 'en' ? 'Heritage (Oldest First)' : 'მემკვიდრეობა (ძველი პირველი)'}</option>
-                  <option value="heritage-newest">{language === 'en' ? 'Heritage (Newest First)' : 'მემკვიდრეობა (ახალი პირველი)'}</option>
-                  <option value="bestsellers-desc">{language === 'en' ? 'Most Popular' : 'ყველაზე პოპულარული'}</option>
+                  <option value="name-asc">
+                    {language === "en" ? "Name (A-Z)" : "სახელი (ა-ჰ)"}
+                  </option>
+                  <option value="name-desc">
+                    {language === "en" ? "Name (Z-A)" : "სახელი (ჰ-ა)"}
+                  </option>
+                  <option value="category-asc">
+                    {language === "en" ? "Category" : "კატეგორია"}
+                  </option>
+                  <option value="heritage-oldest">
+                    {language === "en"
+                      ? "Heritage (Oldest First)"
+                      : "მემკვიდრეობა (ძველი პირველი)"}
+                  </option>
+                  <option value="heritage-newest">
+                    {language === "en"
+                      ? "Heritage (Newest First)"
+                      : "მემკვიდრეობა (ახალი პირველი)"}
+                  </option>
+                  <option value="bestsellers-desc">
+                    {language === "en" ? "Most Popular" : "ყველაზე პოპულარული"}
+                  </option>
                 </select>
               </div>
 
@@ -345,19 +403,19 @@ export default function BrandPage() {
               <div>
                 <label className="flex items-center justify-between">
                   <span className="text-sm font-medium text-gray-900">
-                    {language === 'en' ? 'Show Favorites Only' : 'მხოლოდ რჩეულები'}
+                    {language === "en"
+                      ? "Show Favorites Only"
+                      : "მხოლოდ რჩეულები"}
                   </span>
                   <button
                     onClick={() => setShowOnlyFavorites(!showOnlyFavorites)}
                     className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                      showOnlyFavorites 
-                        ? 'bg-golden-brown' 
-                        : 'bg-gray-200'
+                      showOnlyFavorites ? "bg-golden-brown" : "bg-gray-200"
                     }`}
                   >
                     <span
                       className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                        showOnlyFavorites ? 'translate-x-6' : 'translate-x-1'
+                        showOnlyFavorites ? "translate-x-6" : "translate-x-1"
                       }`}
                     />
                   </button>
@@ -371,13 +429,16 @@ export default function BrandPage() {
                 onClick={clearAllFilters}
                 className="w-full py-2 px-4 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
               >
-                {language === 'en' ? 'Clear All Filters' : 'ყველა ფილტრის გასუფთავება'}
+                {language === "en"
+                  ? "Clear All Filters"
+                  : "ყველა ფილტრის გასუფთავება"}
               </button>
               <button
                 onClick={closeFilters}
                 className="w-full py-2 px-4 bg-golden-brown text-white rounded-lg hover:bg-golden-brown/90 transition-colors"
               >
-                {language === 'en' ? 'Apply Filters' : 'ფილტრების გამოყენება'} ({filteredBrands.length})
+                {language === "en" ? "Apply Filters" : "ფილტრების გამოყენება"} (
+                {filteredBrands.length})
               </button>
             </div>
           </div>
@@ -410,57 +471,68 @@ export default function BrandPage() {
 
             {/* Brand Statistics - Mobile responsive grid */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-white mb-1">
-                    {allFilteredBrands.length}
-                  </div>
-                  <div className="text-white/70 text-sm uppercase tracking-wide">
-                    {language === 'en' ? 'Total Brands' : 'ჯამური ბრენდები'}
-                  </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-white mb-1">
+                  {allFilteredBrands.length}
                 </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-white mb-1">
-                    {allFilteredBrands.filter(b => b.category === 'luxury').length}
-                  </div>
-                  <div className="text-white/70 text-sm uppercase tracking-wide">
-                    {language === 'en' ? 'Luxury' : 'ლუქსური'}
-                  </div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-white mb-1">
-                    {allFilteredBrands.filter(b => b.category === 'niche').length}
-                  </div>
-                  <div className="text-white/70 text-sm uppercase tracking-wide">
-                    {language === 'en' ? 'Niche' : 'ნიშური'}
-                  </div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-white mb-1">
-                    {allFilteredBrands.filter(b => b.category === 'designer').length}
-                  </div>
-                  <div className="text-white/70 text-sm uppercase tracking-wide">
-                    {language === 'en' ? 'Designer' : 'დიზაინერი'}
-                  </div>
+                <div className="text-white/70 text-sm uppercase tracking-wide">
+                  {language === "en" ? "Total Brands" : "ჯამური ბრენდები"}
                 </div>
               </div>
-            
+              <div className="text-center">
+                <div className="text-2xl font-bold text-white mb-1">
+                  {
+                    allFilteredBrands.filter((b) => b.category === "luxury")
+                      .length
+                  }
+                </div>
+                <div className="text-white/70 text-sm uppercase tracking-wide">
+                  {language === "en" ? "Luxury" : "ლუქსური"}
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-white mb-1">
+                  {
+                    allFilteredBrands.filter((b) => b.category === "niche")
+                      .length
+                  }
+                </div>
+                <div className="text-white/70 text-sm uppercase tracking-wide">
+                  {language === "en" ? "Niche" : "ნიშური"}
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-white mb-1">
+                  {
+                    allFilteredBrands.filter((b) => b.category === "designer")
+                      .length
+                  }
+                </div>
+                <div className="text-white/70 text-sm uppercase tracking-wide">
+                  {language === "en" ? "Designer" : "დიზაინერი"}
+                </div>
+              </div>
+            </div>
+
             {/* Favorites toggle - Mobile centered, desktop right */}
             <div className="flex justify-center lg:justify-end">
               <div className="inline-flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-full px-4 sm:px-6 py-2 sm:py-3 border border-white/20">
                 <span className="text-white font-medium text-sm sm:text-base">
-                  {language === 'en' ? 'Favorites Only' : 'მხოლოდ რჩეულები'}
+                  {language === "en" ? "Favorites Only" : "მხოლოდ რჩეულები"}
                 </span>
                 <button
                   onClick={() => setShowOnlyFavorites(!showOnlyFavorites)}
                   className={`relative inline-flex h-5 w-9 sm:h-6 sm:w-11 items-center rounded-full transition-colors ${
-                    showOnlyFavorites 
-                      ? 'bg-red-500 hover:bg-red-600' 
-                      : 'bg-white/20 hover:bg-white/30'
+                    showOnlyFavorites
+                      ? "bg-red-500 hover:bg-red-600"
+                      : "bg-white/20 hover:bg-white/30"
                   }`}
                 >
                   <span
                     className={`inline-block h-3 w-3 sm:h-4 sm:w-4 transform rounded-full bg-white transition-transform ${
-                      showOnlyFavorites ? 'translate-x-5 sm:translate-x-6' : 'translate-x-1'
+                      showOnlyFavorites
+                        ? "translate-x-5 sm:translate-x-6"
+                        : "translate-x-1"
                     }`}
                   />
                 </button>
@@ -470,7 +542,7 @@ export default function BrandPage() {
                       className="w-3 h-3 sm:w-4 sm:h-4 text-red-400 fill-current"
                       viewBox="0 0 24 24"
                     >
-                      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                     </svg>
                     <span className="text-white text-xs sm:text-sm">
                       {filteredBrands.length}
@@ -504,17 +576,23 @@ export default function BrandPage() {
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2 text-sm text-gray-600">
-              <span>{filteredBrands.length} {language === 'en' ? 'brands' : 'ბრენდი'}</span>
+              <span>
+                {filteredBrands.length}{" "}
+                {language === "en" ? "brands" : "ბრენდი"}
+              </span>
               {showOnlyFavorites && (
                 <div className="flex items-center space-x-1">
                   <span>•</span>
-                  <svg className="w-3 h-3 text-red-500 fill-current" viewBox="0 0 24 24">
-                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                  <svg
+                    className="w-3 h-3 text-red-500 fill-current"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                   </svg>
-                  <span>{language === 'en' ? 'Favorites' : 'რჩეულები'}</span>
+                  <span>{language === "en" ? "Favorites" : "რჩეულები"}</span>
                 </div>
               )}
-              {selectedCategory !== 'all' && (
+              {selectedCategory !== "all" && (
                 <div className="flex items-center space-x-1">
                   <span>•</span>
                   <span className="capitalize">{selectedCategory}</span>
@@ -525,9 +603,19 @@ export default function BrandPage() {
               onClick={openFilters}
               className="text-golden-brown font-medium text-sm flex items-center space-x-1"
             >
-              <span>{language === 'en' ? 'Filter' : 'ფილტრი'}</span>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
+              <span>{language === "en" ? "Filter" : "ფილტრი"}</span>
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"
+                />
               </svg>
             </button>
           </div>
@@ -555,19 +643,18 @@ export default function BrandPage() {
                 </svg>
               </div>
               <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
-                {language === 'en' ? 'No brands found' : 'ბრენდი ვერ მოიძებნა'}
+                {language === "en" ? "No brands found" : "ბრენდი ვერ მოიძებნა"}
               </h3>
               <p className="text-gray-500 text-sm sm:text-lg px-4">
-                {language === 'en' 
-                  ? 'Try adjusting your search or filter criteria.' 
-                  : 'სცადეთ ძიების ან ფილტრის კრიტერიუმების შეცვლა.'
-                }
+                {language === "en"
+                  ? "Try adjusting your search or filter criteria."
+                  : "სცადეთ ძიების ან ფილტრის კრიტერიუმების შეცვლა."}
               </p>
               <button
                 onClick={openFilters}
                 className="mt-4 px-6 py-2 bg-golden-brown text-white rounded-lg hover:bg-golden-brown/90 transition-colors md:hidden"
               >
-                {language === 'en' ? 'Adjust Filters' : 'ფილტრების შეცვლა'}
+                {language === "en" ? "Adjust Filters" : "ფილტრების შეცვლა"}
               </button>
             </div>
           ) : (
