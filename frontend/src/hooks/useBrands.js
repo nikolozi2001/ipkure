@@ -18,7 +18,10 @@ const getBrandsData = (language) => [
     featured: true,
     country: "France",
     foundedBy: "Jacques Polge",
-    price: "$125.00"
+    pricing: {
+      "50 ml": "$95.00",
+      "100 ml": "$125.00"
+    }
   },
   {
     id: 2,
@@ -34,7 +37,10 @@ const getBrandsData = (language) => [
     newArrivals: 4,
     country: "France",
     foundedBy: "Chanel",
-    price: "$156.00"
+    pricing: {
+      "50 ml": "$118.00",
+      "100 ml": "$156.00"
+    }
   },
   {
     id: 3,
@@ -50,7 +56,10 @@ const getBrandsData = (language) => [
     newArrivals: 3,
     country: "France",
     foundedBy: "Jacques Polge",
-    price: "$168.00"
+    pricing: {
+      "50 ml": "$128.00",
+      "100 ml": "$168.00"
+    }
   },
   {
     id: 4,
@@ -66,7 +75,10 @@ const getBrandsData = (language) => [
     newArrivals: 6,
     country: "USA",
     foundedBy: "Alberto Morillas",
-    price: "$98.00"
+    pricing: {
+      "50 ml": "$75.00",
+      "100 ml": "$98.00"
+    }
   },
   {
     id: 5,
@@ -82,7 +94,10 @@ const getBrandsData = (language) => [
     newArrivals: 7,
     country: "Italy",
     foundedBy: "Domenico Dolce & Stefano Gabbana",
-    price: "$142.00"
+    pricing: {
+      "50 ml": "$108.00",
+      "100 ml": "$142.00"
+    }
   },
   {
     id: 6,
@@ -98,7 +113,10 @@ const getBrandsData = (language) => [
     newArrivals: 5,
     country: "Italy",
     foundedBy: "Aurelien Guichard",
-    price: "$135.00"
+    pricing: {
+      "50 ml": "$102.00",
+      "100 ml": "$135.00"
+    }
   }
 ];
 

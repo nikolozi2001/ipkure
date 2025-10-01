@@ -19,7 +19,7 @@ export default function ProductPage() {
   const location = useLocation();
   const navigate = useNavigate();
   const { filterBrands } = useBrands();
-  
+
   const [selectedSize, setSelectedSize] = useState("100 ml");
   const [quantity, setQuantity] = useState(1);
   const [isFavorited, setIsFavorited] = useState(false);
@@ -32,10 +32,10 @@ export default function ProductPage() {
   // Get brand image mapping
   const getBrandImage = (name) => {
     const imageMap = {
-      "Chance": chance,
+      Chance: chance,
       "Chanel Chance": chanelChance,
       "Coco Chanel": cocoChanel,
-      "Daisy": daisy,
+      Daisy: daisy,
       "Dolce & Gabbana": dolceGabbana,
       "Versace Eros": versaceEros,
     };
@@ -54,11 +54,12 @@ export default function ProductPage() {
 
       // Otherwise, find brand by slug from useBrands data
       const allBrands = filterBrands("", "all");
-      const foundBrand = allBrands.find(b => {
-        const slug = b.name.toLowerCase()
-          .replace(/\s+/g, '-')
-          .replace(/[&]/g, 'and')
-          .replace(/[^a-z0-9-]/g, '');
+      const foundBrand = allBrands.find((b) => {
+        const slug = b.name
+          .toLowerCase()
+          .replace(/\s+/g, "-")
+          .replace(/[&]/g, "and")
+          .replace(/[^a-z0-9-]/g, "");
         return slug === brandSlug;
       });
 
@@ -77,17 +78,21 @@ export default function ProductPage() {
   // Check if favorited
   useEffect(() => {
     if (brand) {
-      const favorites = JSON.parse(localStorage.getItem("favoriteBrands") || "[]");
-      setIsFavorited(favorites.some(fav => fav.id === brand.id));
+      const favorites = JSON.parse(
+        localStorage.getItem("favoriteBrands") || "[]"
+      );
+      setIsFavorited(favorites.some((fav) => fav.id === brand.id));
     }
   }, [brand]);
 
   // Handle favorite toggle
   const handleFavoriteToggle = () => {
-    const favorites = JSON.parse(localStorage.getItem("favoriteBrands") || "[]");
-    
+    const favorites = JSON.parse(
+      localStorage.getItem("favoriteBrands") || "[]"
+    );
+
     if (isFavorited) {
-      const updatedFavorites = favorites.filter(fav => fav.id !== brand.id);
+      const updatedFavorites = favorites.filter((fav) => fav.id !== brand.id);
       localStorage.setItem("favoriteBrands", JSON.stringify(updatedFavorites));
       setIsFavorited(false);
     } else {
@@ -111,7 +116,7 @@ export default function ProductPage() {
       reference: "Ref.",
       foundedBy: "Founded by",
       heritage: "Heritage",
-      country: "Country"
+      country: "Country",
     },
     ge: {
       backToBrands: "ბრენდებზე დაბრუნება",
@@ -125,8 +130,8 @@ export default function ProductPage() {
       reference: "რეფ.",
       foundedBy: "დაარსებულია",
       heritage: "მემკვიდრეობა",
-      country: "ქვეყანა"
-    }
+      country: "ქვეყანა",
+    },
   };
 
   const t = productTranslations[language];
@@ -143,7 +148,9 @@ export default function ProductPage() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">Product Not Found</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">
+            Product Not Found
+          </h2>
           <button
             onClick={() => navigate(`/${language}/brand`)}
             className="text-blue-600 hover:text-blue-800"
@@ -165,8 +172,18 @@ export default function ProductPage() {
           onClick={() => navigate(`/${language}/brand`)}
           className="flex items-center text-gray-600 hover:text-gray-900 mb-8 transition-colors cursor-pointer"
         >
-          <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          <svg
+            className="w-5 h-5 mr-2"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
           </svg>
           {t.backToBrands}
         </button>
@@ -190,14 +207,20 @@ export default function ProductPage() {
                   <h1 className="text-2xl lg:text-3xl font-bold text-gray-900 uppercase tracking-wide">
                     {brand.name}
                   </h1>
-                  <p className="text-2xl font-bold text-gray-900 mt-2">{brand.price}</p>
+                  <p className="text-2xl font-bold text-gray-900 mt-2">
+                    {brand.pricing?.[selectedSize] ||
+                      brand.pricing?.["100 ml"] ||
+                      "$0.00"}
+                  </p>
                 </div>
                 <button
                   onClick={handleFavoriteToggle}
                   className="flex items-center space-x-2 text-gray-600 hover:text-red-500 transition-colors"
                 >
                   <svg
-                    className={`w-6 h-6 ${isFavorited ? 'text-red-500 fill-current' : ''}`}
+                    className={`w-6 h-6 ${
+                      isFavorited ? "text-red-500 fill-current" : ""
+                    }`}
                     fill={isFavorited ? "currentColor" : "none"}
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -217,7 +240,9 @@ export default function ProductPage() {
 
               {/* Product Type */}
               <p className="text-lg text-gray-700 mb-4">{t.perfumeType}</p>
-              <p className="text-right text-sm text-gray-500 mb-6">{t.reference} {brand.id}16660</p>
+              <p className="text-right text-sm text-gray-500 mb-6">
+                {t.reference} {brand.id}16660
+              </p>
 
               {/* Description */}
               <p className="text-gray-700 leading-relaxed mb-6">
@@ -234,7 +259,7 @@ export default function ProductPage() {
                 <div className="flex space-x-4">
                   <button
                     onClick={() => setSelectedSize("50 ml")}
-                    className={`px-4 py-2 border transition-colors ${
+                    className={`px-4 py-2 border transition-colors cursor-pointer ${
                       selectedSize === "50 ml"
                         ? "border-gray-900 bg-gray-900 text-white"
                         : "border-gray-300 text-gray-700 hover:border-gray-400"
@@ -244,7 +269,7 @@ export default function ProductPage() {
                   </button>
                   <button
                     onClick={() => setSelectedSize("100 ml")}
-                    className={`px-4 py-2 border transition-colors ${
+                    className={`px-4 py-2 border transition-colors cursor-pointer ${
                       selectedSize === "100 ml"
                         ? "border-gray-900 bg-gray-900 text-white"
                         : "border-gray-300 text-gray-700 hover:border-gray-400"
