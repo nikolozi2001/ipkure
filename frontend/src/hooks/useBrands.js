@@ -19,8 +19,8 @@ const getBrandsData = (language) => [
     country: "France",
     foundedBy: "Jacques Polge",
     pricing: {
-      "50 ml": "$95.00",
-      "100 ml": "$125.00"
+      "50 ml": "₾255.00",
+      "100 ml": "₾335.00"
     }
   },
   {
@@ -38,8 +38,8 @@ const getBrandsData = (language) => [
     country: "France",
     foundedBy: "Chanel",
     pricing: {
-      "50 ml": "$118.00",
-      "100 ml": "$156.00"
+      "50 ml": "₾318.00",
+      "100 ml": "₾420.00"
     }
   },
   {
@@ -57,8 +57,8 @@ const getBrandsData = (language) => [
     country: "France",
     foundedBy: "Jacques Polge",
     pricing: {
-      "50 ml": "$128.00",
-      "100 ml": "$168.00"
+      "50 ml": "₾345.00",
+      "100 ml": "₾452.00"
     }
   },
   {
@@ -76,8 +76,8 @@ const getBrandsData = (language) => [
     country: "USA",
     foundedBy: "Alberto Morillas",
     pricing: {
-      "50 ml": "$75.00",
-      "100 ml": "$98.00"
+      "50 ml": "₾202.00",
+      "100 ml": "₾264.00"
     }
   },
   {
@@ -95,8 +95,8 @@ const getBrandsData = (language) => [
     country: "Italy",
     foundedBy: "Domenico Dolce & Stefano Gabbana",
     pricing: {
-      "50 ml": "$108.00",
-      "100 ml": "$142.00"
+      "50 ml": "₾291.00",
+      "100 ml": "₾382.00"
     }
   },
   {
@@ -114,8 +114,8 @@ const getBrandsData = (language) => [
     country: "Italy",
     foundedBy: "Aurelien Guichard",
     pricing: {
-      "50 ml": "$102.00",
-      "100 ml": "$135.00"
+      "50 ml": "₾275.00",
+      "100 ml": "₾363.00"
     }
   }
 ];
