@@ -1,19 +1,21 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useLanguage } from "../../hooks/useLanguage";
 import BrandImage from "./BrandImage";
 
 export default function BrandsGrid({ brands, onBrandClick }) {
   const { language } = useLanguage();
+  const navigate = useNavigate();
 
   const gridTranslations = {
     en: {
-      detail: "Detail",
+      cart: "ADD TO CART",
       altTexts: {
         brand: "Brand",
       },
     },
     ge: {
-      detail: "დეტალურად",
+      cart: "კალათში დამატება",
       altTexts: {
         brand: "ბრენდი",
       },
@@ -21,6 +23,23 @@ export default function BrandsGrid({ brands, onBrandClick }) {
   };
 
   const t = gridTranslations[language];
+
+  // Handle navigation to product page
+  const handleProductClick = (brand, e) => {
+    e.stopPropagation(); // Prevent triggering parent click events
+
+    // Create a URL-friendly slug from brand name
+    const brandSlug = brand.name
+      .toLowerCase()
+      .replace(/\s+/g, "-")
+      .replace(/[&]/g, "and")
+      .replace(/[^a-z0-9-]/g, "");
+
+    // Navigate to product page with brand slug
+    navigate(`/${language}/product/${brandSlug}`, {
+      state: { brand },
+    });
+  };
 
   return (
     <div className="w-full">
@@ -38,6 +57,7 @@ export default function BrandsGrid({ brands, onBrandClick }) {
               {/* Overlay - Mobile friendly */}
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300 z-0 pointer-events-none">
                 <button
+                  onClick={(e) => handleProductClick(brand, e)}
                   className="px-3 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium uppercase tracking-wide bg-white/20 backdrop-blur-md border-2 border-white text-white transition-all duration-200 touch-manipulation hover:bg-white/30 pointer-events-auto"
                   style={{
                     fontFamily:
@@ -46,7 +66,7 @@ export default function BrandsGrid({ brands, onBrandClick }) {
                         : "var(--font-primary-en)",
                   }}
                 >
-                  {t.detail}
+                  {t.cart}
                 </button>
               </div>
             </div>

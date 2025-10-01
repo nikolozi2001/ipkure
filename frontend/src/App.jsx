@@ -5,6 +5,7 @@ import Layout from './components/Layout';
 import HomePage from './pages/HomePage';
 import GiftSets from './pages/GiftSets.jsx';
 import BrandPage from './pages/BrandPage';
+import ProductPage from './pages/ProductPage';
 import MenPage from './pages/MenPage';
 import WomenPage from './pages/WomenPage';
 import Contacts from './pages/Contacts.jsx';
@@ -24,6 +25,7 @@ function App() {
                 <Routes>
                   <Route path="/" element={<HomePage />} />
                   <Route path="/brand" element={<BrandPage />} />
+                  <Route path="/product/:brandSlug" element={<ProductPage />} />
                   <Route path="/men" element={<MenPage />} />
                   <Route path="/women" element={<WomenPage />} />
                   <Route path="/gift_sets" element={<GiftSets />} />
