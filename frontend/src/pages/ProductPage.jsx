@@ -108,7 +108,6 @@ export default function ProductPage() {
       size: "Size",
       qty: "Qty",
       addToCart: "ADD TO CART",
-      price: "$156.00",
       reference: "Ref.",
       foundedBy: "Founded by",
       heritage: "Heritage",
@@ -123,7 +122,6 @@ export default function ProductPage() {
       size: "ზომა",
       qty: "რაოდენობა",
       addToCart: "კალათში დამატება",
-      price: "$156.00",
       reference: "რეფ.",
       foundedBy: "დაარსებულია",
       heritage: "მემკვიდრეობა",
@@ -192,7 +190,7 @@ export default function ProductPage() {
                   <h1 className="text-2xl lg:text-3xl font-bold text-gray-900 uppercase tracking-wide">
                     {brand.name}
                   </h1>
-                  <p className="text-2xl font-bold text-gray-900 mt-2">{t.price}</p>
+                  <p className="text-2xl font-bold text-gray-900 mt-2">{brand.price}</p>
                 </div>
                 <button
                   onClick={handleFavoriteToggle}

@@ -17,7 +17,8 @@ const getBrandsData = (language) => [
     newArrivals: 5,
     featured: true,
     country: "France",
-    foundedBy: "Jacques Polge"
+    foundedBy: "Jacques Polge",
+    price: "$125.00"
   },
   {
     id: 2,
@@ -32,7 +33,8 @@ const getBrandsData = (language) => [
     bestsellers: 28,
     newArrivals: 4,
     country: "France",
-    foundedBy: "Chanel"
+    foundedBy: "Chanel",
+    price: "$156.00"
   },
   {
     id: 3,
@@ -47,7 +49,8 @@ const getBrandsData = (language) => [
     bestsellers: 32,
     newArrivals: 3,
     country: "France",
-    foundedBy: "Jacques Polge"
+    foundedBy: "Jacques Polge",
+    price: "$168.00"
   },
   {
     id: 4,
@@ -62,7 +65,8 @@ const getBrandsData = (language) => [
     bestsellers: 22,
     newArrivals: 6,
     country: "USA",
-    foundedBy: "Alberto Morillas"
+    foundedBy: "Alberto Morillas",
+    price: "$98.00"
   },
   {
     id: 5,
@@ -77,7 +81,8 @@ const getBrandsData = (language) => [
     bestsellers: 19,
     newArrivals: 7,
     country: "Italy",
-    foundedBy: "Domenico Dolce & Stefano Gabbana"
+    foundedBy: "Domenico Dolce & Stefano Gabbana",
+    price: "$142.00"
   },
   {
     id: 6,
@@ -92,7 +97,8 @@ const getBrandsData = (language) => [
     bestsellers: 26,
     newArrivals: 5,
     country: "Italy",
-    foundedBy: "Aurelien Guichard"
+    foundedBy: "Aurelien Guichard",
+    price: "$135.00"
   }
 ];
 
